@@ -1,24 +1,26 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import './styles/global.css'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+import { mountGlowCursor } from './utils/glowCursor'
+import { mountNav }        from './components/nav/nav'
+import { mountHero }       from './components/hero/hero'
+import { mountPortfolio }  from './components/portfolio/portfolio'
+import { mountPress }      from './components/press/press'
+import { mountContact }    from './components/contact/contact'
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+mountGlowCursor()
+
+const app = document.getElementById('app')!
+
+const navSlot       = document.createElement('div')
+const heroSlot      = document.createElement('div')
+const portfolioSlot = document.createElement('div')
+const pressSlot     = document.createElement('div')
+const contactSlot   = document.createElement('div')
+
+app.append(navSlot, heroSlot, portfolioSlot, pressSlot, contactSlot)
+
+mountNav(navSlot)
+mountHero(heroSlot)
+mountPortfolio(portfolioSlot)
+mountPress(pressSlot)
+mountContact(contactSlot)

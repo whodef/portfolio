@@ -1,0 +1,156 @@
+#portfolio {
+  background: var(--bg2);
+}
+
+.portfolio-content {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  width: 100%;
+}
+
+.portfolio-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 60px;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.portfolio-card.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── MOCK PHONE ─── */
+.card-image {
+  position: relative;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,255,136,0.25);
+  overflow: hidden;
+  background: #111820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(0,255,136,0.05);
+}
+.card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(0,255,136,0.08), transparent 70%);
+}
+
+.mock-screen {
+  width: 220px; height: 260px;
+  background: linear-gradient(135deg, #0d2818 0%, #0a1a0f 60%, #112218 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(0,255,136,0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 6px;
+  overflow: hidden;
+}
+.mock-bar { height: 6px; border-radius: 3px; background: var(--green); opacity: 0.6; width: 60%; }
+.mock-bar.w40 { width: 40%; opacity: 0.3; }
+.mock-bar.w80 { width: 80%; opacity: 0.15; }
+.mock-wave {
+  flex: 1;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(0,255,136,0.25) 0%, rgba(0,255,136,0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.mock-wave::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: -20%;
+  width: 140%; height: 60%;
+  background: radial-gradient(ellipse at 50% 80%, rgba(0,255,136,0.3), transparent 60%);
+  animation: waveAnim 3s ease-in-out infinite alternate;
+}
+@keyframes waveAnim {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+/* ─── CARD TEXT ─── */
+.card-text .p-tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+
+.card-title {
+  font-family: var(--font-mono);
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--green);
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+.card-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  max-width: 380px;
+}
+.card-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 3px;
+  margin-top: 16px;
+}
+
+/* ─── SLIDER CONTROLS ─── */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slider-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,255,136,0.3);
+  background: transparent;
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  transition: border-color 0.2s, background 0.2s;
+}
+.slider-btn:hover { border-color: var(--green); background: var(--green-glow); }
+
+.slider-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 1px;
+  position: relative;
+  overflow: hidden;
+}
+.slider-progress {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--green);
+  border-radius: 1px;
+  width: 33%;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .portfolio-card { grid-template-columns: 1fr; gap: 32px; justify-items: center; }
+  .card-image { width: 260px; height: 260px; }
+}
+@media (max-width: 600px) {
+  .card-image { width: 220px; height: 220px; }
+}
