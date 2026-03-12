@@ -3,8 +3,6 @@
   background: var(--bg);
   position: relative;
   min-height: 100vh;
-  max-width: 1400px;
-  margin: auto;
 }
 
 .hero-inner {
@@ -13,15 +11,20 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 40px;
+  gap: clamp(20px, 4vw, 60px);
   align-items: center;
   position: relative;
   z-index: 2;
+  padding: 0 40px;
+}
+
+.heroWrap {
+  padding-left: 60px;
 }
 
 h1.hero-name {
   font-family: var(--font-mono) !important;
-  font-size: clamp(56px, 8vw, 96px);
+  font-size: clamp(48px, 7.5vw, 96px);
   color: var(--text);
   line-height: 1;
   font-weight: 400;
@@ -30,18 +33,18 @@ h1.hero-name {
 }
 
 .name {
-  margin-left: 50px;
+  margin-left: clamp(20px, 4vw, 50px);
 }
 
 .tag-label, .tag-close {
   font-family: var(--font-secondary);
-  font-size: 16px;
+  font-size: clamp(12px, 1.2vw, 16px);
   color: var(--text-dim);
 }
 
 .hero-subtitle {
   font-family: var(--font-secondary);
-  font-size: 16px;
+  font-size: clamp(13px, 1.4vw, 16px);
   color: var(--text-dim);
   margin-top: 12px;
   animation: fadeUp 0.8s ease 0.2s both;
@@ -49,7 +52,7 @@ h1.hero-name {
 
 .paragraph {
   color: var(--green);
-  font-size: 20px;
+  font-size: clamp(15px, 1.8vw, 20px);
 }
 
 /* ─── CV BUTTON ─── */
@@ -57,12 +60,13 @@ h1.hero-name {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .cv-btn {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: clamp(200px, 24vw, 340px);
+  height: clamp(200px, 24vw, 340px);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -74,6 +78,7 @@ h1.hero-name {
   border: 2px solid rgba(255,255,255,0.35);
   box-shadow: 0 0 50px rgba(0,255,136,0.08), inset 0 0 40px rgba(0,0,0,0.6);
   transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 
 .cv-btn:hover {
@@ -84,8 +89,8 @@ h1.hero-name {
 .cv-btn::before {
   content: '';
   position: absolute;
-  width: 210px;
-  height: 210px;
+  width: 62%;
+  height: 62%;
   border-radius: 50%;
   border: 1.5px solid rgba(255,255,255,0.1);
   pointer-events: none;
@@ -93,7 +98,7 @@ h1.hero-name {
 
 .cv-label {
   font-family: var(--font-body);
-  font-size: 21px;
+  font-size: clamp(14px, 1.8vw, 21px);
   color: var(--green);
   text-align: center;
   line-height: 1.5;
@@ -113,146 +118,56 @@ h1.hero-name {
   pointer-events: none;
 }
 
-.orbit-1 {
-  animation: spinCW 18s linear infinite;
-}
-
-.orbit-2 {
-  animation: spinCCW 12s linear infinite;
-}
-
-.orbit-3 {
-  animation: spinCW 28s linear infinite;
-}
+.orbit-1 { animation: spinCW 18s linear infinite; }
+.orbit-2 { animation: spinCCW 12s linear infinite; }
+.orbit-3 { animation: spinCW 28s linear infinite; }
 
 .orbit-dot {
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.9));
 }
 
-.orbit-1 .orbit-dot {
-  r: 6.5;
-}
-
-.orbit-1 .orbit-dot:last-child {
-  r: 4.5;
-}
-
-.orbit-2 .orbit-dot {
-  r: 5;
-}
-
-.orbit-2 .orbit-dot:not(:first-child) {
-  r: 4;
-}
-
-.orbit-3 .orbit-dot {
-  r: 4;
-}
-
-/* ─── CONNECTOR SVG — covers entire section ─── */
+/* ─── CONNECTOR SVG ─── */
 .hero-connector-svg {
   position: absolute;
-  top: 350px;
-  left: 0;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10;
   overflow: visible;
 }
 
-.hero-connector-svg path {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: drawLine 2s ease-in-out forwards;
-}
-
-.connector-dot {
-  fill: var(--green);
-  filter: drop-shadow(0 0 6px var(--green));
-  transition: opacity 0.4s ease;
+.line-path {
+  stroke: var(--green);
+  stroke-width: 2.5;
+  fill: none;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 148, 0.5));
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
 }
 
 .line-dot {
-  animation: glowPulse 3s ease-in-out infinite;
-}
-
-.line-path {
-  stroke: #00FF94;
-  stroke-width: 3;
-  fill: none;
-  filter: drop-shadow(0 0 5px rgba(0, 255, 148, 0.5));
-}
-
-.connector-tag {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 34px;
-  fill: rgba(255,255,255,0.5);
-  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 /* ─── ANIMATIONS ─── */
-@keyframes spinCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes spinCCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0.21;
-    r: 20;
-  }
-  50% {
-    opacity: 0.4;
-    r: 22;
-    filter: drop-shadow(0 0 10px #00FF94);
-  }
+  to   { opacity: 1; }
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .hero-inner {
+@media (max-width: 800px) {
+  .heroWrap { padding: 0; }
+  .hero-inner { 
     grid-template-columns: 1fr;
   }
-  .cv-btn-wrap {
-    display: none;
-  }
-
-  .hero-connector-svg {
-    display: none;
-  }
+  .cv-btn-wrap { display: none; }
+  .hero-connector-svg { display: none; }
 }
 
-@media (max-width: 600px) {
-  h1.hero-name {
-    font-size: 48px;
-  }
+@media (max-width: 400px) {
+  h1.hero-name { font-size: clamp(40px, 12vw, 56px); }
 }
-
