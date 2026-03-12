@@ -18,7 +18,7 @@ nav {
   align-items: center;
   gap: 40px;
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 18px;
   white-space: nowrap;
 }
 .nav-right { justify-content: flex-end; }

@@ -1,5 +1,8 @@
 import './styles/global.css'
 
+history.scrollRestoration = 'manual'
+window.scrollTo(0, 0)
+
 import { mountGlowCursor } from './utils/glowCursor'
 import { mountNav }        from './components/nav/nav'
 import { mountHero }       from './components/hero/hero'
@@ -24,3 +27,5 @@ mountHero(heroSlot)
 mountPortfolio(portfolioSlot)
 mountPress(pressSlot)
 mountContact(contactSlot)
+
+requestAnimationFrame(() => window.scrollTo(0, 0))
