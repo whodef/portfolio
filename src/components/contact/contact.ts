@@ -27,11 +27,11 @@ function renderNode(link: SocialLink): string {
 
 const TEMPLATE = `
 <section id="contact">
-  <div class="sontact-inner" style="max-width:1200px;margin:80px auto 0;width:100%">
+  <div class="contact-header">
     <div class="tag-label">&lt;h4&gt;</div>
-    <div style="display:inline-block; position:relative; margin-bottom:90px;">
-      <h4 class="section-title" id="portfolioTitle" style="margin-left:40px;">Connect with me</h4>
-      <div class="tag-close" style="position:absolute; right:-55px; bottom:-45px;">&lt;/h4&gt;</div>
+    <div class="contact-title-wrap">
+      <h4 class="section-title">Connect with me</h4>
+      <div class="tag-close">&lt;/h4&gt;</div>
     </div>
   </div>
 

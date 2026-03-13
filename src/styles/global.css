@@ -45,16 +45,23 @@ body::after {
   z-index: 999;
 }
 
-/* ─── GLOW CURSOR ─── */
-.glow-cursor {
-  position: fixed;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 998;
-  transform: translate(-50%, -50%);
-  transition: left 0.15s ease, top 0.15s ease;
+/* ─── GLOW CURSOR — только на устройствах с мышью ─── */
+@media (pointer: fine) {
+  .glow-cursor {
+    position: fixed;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 998;
+    transform: translate(-50%, -50%);
+    transition: left 0.15s ease, top 0.15s ease;
+  }
+}
+
+/* на тач — курсор не рендерим */
+@media (pointer: coarse) {
+  .glow-cursor { display: none; }
 }
 
 /* ─── SHARED: section base ─── */
@@ -85,7 +92,7 @@ section {
 /* ─── SHARED: section title ─── */
 .section-title {
   font-family: var(--font-mono);
-  font-size: clamp(36px, 6vw, 72px);
+  font-size: clamp(32px, 5vw, 72px);
   font-weight: 400;
   color: var(--text);
   letter-spacing: -1px;
@@ -124,7 +131,16 @@ section {
 @keyframes spinCW  { to { transform: rotate(360deg); } }
 @keyframes spinCCW { to { transform: rotate(-360deg); } }
 
-/* ─── RESPONSIVE base ─── */
+/* ─── TABLET (≤ 900px) ─── */
 @media (max-width: 900px) {
-  section { padding: 90px 24px 40px; }
+  section { padding: 90px 32px 48px; }
+
+  .section-title { font-size: clamp(28px, 6vw, 48px); }
+}
+
+/* ─── MOBILE (≤ 600px) ─── */
+@media (max-width: 600px) {
+  section { padding: 80px 16px 40px; }
+
+  .section-title { font-size: clamp(24px, 7.5vw, 36px); }
 }

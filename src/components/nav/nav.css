@@ -94,7 +94,6 @@ nav a.active {
 }
 .mobile-close:hover { color: var(--green); }
 
-/* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; grid-template-columns: auto 1fr; }
   .nav-left, .nav-right { display: none; }

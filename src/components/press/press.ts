@@ -39,11 +39,11 @@ function renderItem(item: PressItem): string {
 
 const TEMPLATE = `
 <section id="press">
-  <div class="section-header" style="max-width:1200px;margin:0 auto;width:100%">
+  <div class="press-section-header">
     <div class="tag-label">&lt;h3&gt;</div>
-    <div style="display:inline-block; position:relative; margin-bottom:90px;">
-      <h3 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Press</h3>
-      <div class="tag-close" style="position:absolute; right:-55px; bottom:-45px;">&lt;/h3&gt;</div>
+    <div class="press-title-wrap">
+      <h3 class="section-title">My Press</h3>
+      <div class="tag-close">&lt;/h3&gt;</div>
     </div>
   </div>
 
@@ -60,12 +60,9 @@ const TEMPLATE = `
         </filter>
       </defs>
 
-      <!-- Top dot glow -->
       <circle class="press-dot-glow" id="pressDotTopGlow" cx="20" cy="20" r="20" fill="#00FF94" opacity="0"/>
-      <!-- Top dot white -->
       <circle class="press-dot-white" id="pressDotTop" cx="20" cy="20" r="8" fill="white" opacity="0"/>
 
-      <!-- Vertical line, animated draw -->
       <line
         id="pressLine"
         x1="20" y1="20"
@@ -76,9 +73,7 @@ const TEMPLATE = `
         filter="url(#pressLineGlow)"
       />
 
-      <!-- Bottom dot glow -->
       <circle class="press-dot-glow" id="pressDotBottomGlow" cx="20" cy="258" r="20" fill="#00FF94" opacity="0"/>
-      <!-- Bottom dot white -->
       <circle class="press-dot-white" id="pressDotBottom" cx="20" cy="258" r="8" fill="white" opacity="0"/>
     </svg>
   </div>
@@ -103,37 +98,33 @@ export function mountPress(root: HTMLElement): void {
 }
 
 function animatePressConnector(): void {
-  const line         = document.getElementById('pressLine')         as SVGLineElement | null
-  const topGlow      = document.getElementById('pressDotTopGlow')   as SVGCircleElement | null
-  const topDot       = document.getElementById('pressDotTop')       as SVGCircleElement | null
-  const bottomGlow   = document.getElementById('pressDotBottomGlow') as SVGCircleElement | null
-  const bottomDot    = document.getElementById('pressDotBottom')    as SVGCircleElement | null
+  const line       = document.getElementById('pressLine')          as SVGLineElement | null
+  const topGlow    = document.getElementById('pressDotTopGlow')    as SVGCircleElement | null
+  const topDot     = document.getElementById('pressDotTop')        as SVGCircleElement | null
+  const bottomGlow = document.getElementById('pressDotBottomGlow') as SVGCircleElement | null
+  const bottomDot  = document.getElementById('pressDotBottom')     as SVGCircleElement | null
 
   if (!line) return
 
-  // Line length = 250 - 20 = 230
   const lineLen = 230
   line.style.strokeDasharray  = String(lineLen)
   line.style.strokeDashoffset = String(lineLen)
   line.style.transition       = 'none'
 
-  // Show top dot immediately
   if (topGlow) { topGlow.style.transition = 'opacity 0.3s ease'; topGlow.style.opacity = '0.21' }
   if (topDot)  { topDot.style.transition  = 'opacity 0.3s ease'; topDot.style.opacity  = '1' }
 
-  // Draw line
   requestAnimationFrame(() => {
     line.style.transition = 'stroke-dashoffset 1400ms cubic-bezier(0.4,0,0.2,1)'
     line.style.strokeDashoffset = '0'
 
-    // Show bottom dot when line finishes
     setTimeout(() => {
       if (bottomGlow) {
         bottomGlow.style.transition = 'opacity 0.4s ease'
         bottomGlow.style.opacity = '0.21'
         bottomGlow.style.animation = 'pressGlowPulse 3s ease-in-out infinite'
       }
-      if (bottomDot)  { bottomDot.style.transition  = 'opacity 0.4s ease'; bottomDot.style.opacity  = '1' }
+      if (bottomDot) { bottomDot.style.transition = 'opacity 0.4s ease'; bottomDot.style.opacity = '1' }
     }, 1300)
   })
 }

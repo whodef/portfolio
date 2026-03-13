@@ -34,7 +34,6 @@ export function mountNav(root: HTMLElement): void {
     </nav>
   `
 
-  // ── Mobile menu ──
   const menu = root.querySelector<HTMLElement>('#mobileMenu')!
   root.querySelector('#hamburger')!.addEventListener('click', () => menu.classList.add('open'))
   root.querySelector('#mobileClose')!.addEventListener('click', () => menu.classList.remove('open'))
@@ -42,7 +41,6 @@ export function mountNav(root: HTMLElement): void {
     a.addEventListener('click', () => menu.classList.remove('open'))
   )
 
-  // ── Active link on scroll ──
   const allLinks = root.querySelectorAll<HTMLAnchorElement>('nav a[href^="#"]')
 
   function setActive(id: string): void {
@@ -62,7 +60,6 @@ export function mountNav(root: HTMLElement): void {
     threshold: 0,
   })
 
-  // Sections mount after nav — wait for full DOM before observing
   window.addEventListener('DOMContentLoaded', () => {
     SECTION_IDS.forEach(id => {
       const el = document.getElementById(id)
@@ -70,7 +67,6 @@ export function mountNav(root: HTMLElement): void {
     })
   })
 
-  // Fallback: если DOMContentLoaded уже сработал
   if (document.readyState !== 'loading') {
     SECTION_IDS.forEach(id => {
       const el = document.getElementById(id)

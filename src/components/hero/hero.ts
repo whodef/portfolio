@@ -1,4 +1,3 @@
-// hero.ts
 import './hero.css'
 import { animateConnector } from '../../utils/connector'
 
@@ -77,31 +76,20 @@ export function mountHero(root: HTMLElement): void {
     const nameRect = nameEl.getBoundingClientRect()
     const cvRect   = cvWrap.getBoundingClientRect()
 
-    // Start dot должен быть у левого края h1, ~38% высоты
     const startX = nameRect.left  - secRect.left - 50
     const startY = nameRect.top   - secRect.top + nameRect.height * 0.38
 
-    // End dot: центр-низ кнопки CV
     const endX = cvRect.left   - secRect.left + cvRect.width  * 0.5
     const endY = cvRect.bottom - secRect.top  + 20
 
-    // В дизайне:
-    // start dot: cx=72.5, cy=20
-    // end dot:   cx=670.5, cy=599
-    // canvas:    691 x 619
-    //
-    // Масштаб по X: реальная дельта / дизайн дельта
-    const scaleX = (endX - startX) / (670.5 - 12.5)  // 598 дизайн-единиц
-    const scaleY = (endY - startY) / (599  - 40)      // 579 дизайн-единиц
+    const scaleX = (endX - startX) / (670.5 - 12.5)
+    const scaleY = (endY - startY) / (599  - 40)
 
-    // Применяем множитель чтобы линия была чуть крупнее (как на макете)
     const scale = Math.max(scaleX, scaleY) * 0.6
 
     const svgW = 691 * scale
     const svgH = 619 * scale
 
-    // SVG позиционируем так, чтобы точка (72.5, 20) в дизайне
-    // совпала с (startX, startY) на экране
     const svgLeft = startX - 72.5 * scale
     const svgTop  = startY - 20   * scale
 

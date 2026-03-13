@@ -1,7 +1,29 @@
 #press {
   background: var(--bg);
   padding: 160px 60px;
-  overflow: visible; /* позволяет коннектору выходить за пределы секции */
+  overflow: visible;
+}
+
+.press-section-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.press-title-wrap {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 90px;
+}
+
+.press-title-wrap .section-title {
+  margin-left: 40px;
+}
+
+.press-title-wrap .tag-close {
+  position: absolute;
+  right: -55px;
+  bottom: -45px;
 }
 
 .press-list {
@@ -32,7 +54,6 @@
   border-top: none;
 }
 
-/* ─── INFO ─── */
 .press-info { position: relative; }
 
 .press-name {
@@ -53,7 +74,6 @@
   margin-top: 2px;
 }
 
-/* ─── ARROW ─── */
 .press-arrow {
   display: flex;
   align-items: center;
@@ -71,7 +91,7 @@
 }
 
 .arrow-path {
-  fill: var(--text-dim);
+  fill: var(--text);
   transition: fill 0.3s ease, filter 0.3s ease;
 }
 .press-item:not(.featured):hover .arrow-path {
@@ -86,9 +106,6 @@
   justify-content: center;
   margin-top: 80px;
   width: 100%;
-  /* враппер занимает только верхнюю половину SVG (139px),
-     нижняя половина перекрывает начало #contact */
-  /* height: 139px; */
   overflow: visible;
 }
 
@@ -103,27 +120,37 @@
   pointer-events: none;
 }
 
-/* Animated line */
 #pressLine {
   stroke-dasharray: 230;
   stroke-dashoffset: 230;
   filter: drop-shadow(0 0 5px rgba(0, 255, 148, 0.6));
 }
 
-/* Pulsing glow on bottom dot */
-#pressDotBottomGlow {
-  opacity: 0;
-}
+#pressDotBottomGlow { opacity: 0; }
 
 @keyframes pressGlowPulse {
   0%, 100% { opacity: 0.21; }
   50%       { opacity: 0.42; }
 }
 
-/* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  #press { padding: 90px 24px 40px; }
+  #press { padding: 0 32px 0; }
   .press-list { margin-top: 60px; }
-  .press-item { padding: 16px 16px; }
-  .press-arrow-svg { width: 36px; }
+  .press-item { padding: 18px 20px; }
+  .press-arrow-svg { width: 38px; }
+  .press-title-wrap .tag-close { right: -44px; bottom: -40px; }
+  .press-connector-svg { width: 28px; height: 180px; }
+  .press-connector-wrap { margin-top: 48px; }
+}
+
+@media (max-width: 600px) {
+  #press { padding: 0 16px 0; }
+  .press-list { margin-top: 40px; }
+  .press-item { padding: 14px 8px; gap: 8px; }
+  .press-name { font-size: clamp(14px, 4.5vw, 20px); }
+  .press-date { font-size: 11px; }
+  .press-arrow-svg { width: 28px; }
+  .press-connector-wrap { display: none; }
+  .press-title-wrap { margin-bottom: 40px; }
+  .press-title-wrap .tag-close { position: static; margin-top: 8px; display: block; }
 }

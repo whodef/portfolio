@@ -8,18 +8,29 @@
   position: relative;
 }
 
-.contact-inner {
+.contact-header {
   max-width: 1200px;
-  margin: 100px auto 50px;
+  margin: 80px auto 0;
   width: 100%;
-  text-align: left;
 }
 
-#contact .section-title { text-align: left; }
-#contact .tag-label,
-#contact .tag-close { text-align: left; }
+.contact-title-wrap {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 90px;
+}
 
-/* ── floating field ── */
+.contact-title-wrap .section-title {
+  margin-left: 40px;
+}
+
+.contact-title-wrap .tag-close {
+  position: absolute;
+  right: -55px;
+  bottom: -45px;
+}
+
+/* ── FLOATING FIELD ── */
 .social-field {
   position: relative;
   width: 100%;
@@ -66,9 +77,10 @@
 }
 .social-node:hover .social-name { color: var(--green); }
 
-/* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  #contact { padding: 90px 24px 40px; }
+  #contact { padding: 90px 32px 48px; }
+
+  .contact-header { margin-top: 40px; }
 
   .social-field {
     position: static;
@@ -82,9 +94,42 @@
 
   .social-node {
     position: static !important;
-    width: 140px !important;
-    height: 140px !important;
+    width: 150px !important;
+    height: 150px !important;
   }
 
-  .social-name { font-size: 14px; }
+  .social-name { font-size: 15px; }
+  .social-tag  { font-size: 14px; }
+
+  .contact-title-wrap .tag-close {
+    right: -44px;
+    bottom: -40px;
+  }
+}
+
+@media (max-width: 600px) {
+  #contact { padding: 80px 16px 48px; min-height: unset; }
+
+  .contact-title-wrap { margin-bottom: 40px; }
+
+  .contact-title-wrap .tag-close {
+    position: static;
+    margin-top: 8px;
+    display: block;
+  }
+
+  .social-node {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .social-name { font-size: 13px; }
+  .social-tag  { font-size: 12px; }
+}
+
+@media (max-width: 380px) {
+  .social-node {
+    width: 110px !important;
+    height: 110px !important;
+  }
 }

@@ -26,11 +26,11 @@ const SLIDES: Slide[] = [
 
 const TEMPLATE = `
 <section id="portfolio">
-  <div class="section-header" style="max-width:1200px;margin:0 auto;width:100%">
+  <div class="portfolio-section-header">
     <div class="tag-label">&lt;h2&gt;</div>
-    <div style="display:inline-block; position:relative; margin-bottom:140px;">
-      <h2 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Portfolio</h2>
-      <div class="tag-close" style="position:absolute; right:-55px; bottom:-45px;">&lt;/h2&gt;</div>
+    <div class="portfolio-title-wrap">
+      <h2 class="section-title">My Portfolio</h2>
+      <div class="tag-close">&lt;/h2&gt;</div>
     </div>
   </div>
 
@@ -48,6 +48,13 @@ const TEMPLATE = `
           <div class="mock-bar w40"></div>
         </div>
       </div>
+      <div class="slider-controls slider-controls--inline" id="sliderControlsInline">
+        <button class="slider-btn" id="prevBtnInline">&#8249;</button>
+        <div class="slider-track">
+          <div class="slider-progress" id="sliderProgressInline"></div>
+        </div>
+        <button class="slider-btn" id="nextBtnInline">&#8250;</button>
+      </div>
       <div class="card-text">
         <div class="p-tag">&lt;p&gt;</div>
         <h3 class="card-title"></h3>
@@ -58,7 +65,7 @@ const TEMPLATE = `
     </div>
   </div>
 
-  <div class="slider-controls" id="sliderControls">
+  <div class="slider-controls slider-controls--bottom" id="sliderControls">
     <button class="slider-btn" id="prevBtn">&#8249;</button>
     <div class="slider-track">
       <div class="slider-progress" id="sliderProgress"></div>
@@ -99,10 +106,13 @@ export function mountPortfolio(root: HTMLElement): void {
   const titleEl  = card.querySelector<HTMLElement>('.card-title')!
   const descEl   = card.querySelector<HTMLElement>('.card-desc')!
   const roleEl   = card.querySelector<HTMLElement>('.card-role')!
-  const progress = root.querySelector<HTMLElement>('#sliderProgress')!
+  const progress       = root.querySelector<HTMLElement>('#sliderProgress')!
+  const progressInline = root.querySelector<HTMLElement>('#sliderProgressInline')!
 
   function updateProgress(): void {
-    progress.style.width = `${(current + 1) / SLIDES.length * 100}%`
+    const w = `${(current + 1) / SLIDES.length * 100}%`
+    progress.style.width       = w
+    progressInline.style.width = w
   }
 
   function render(): void {
@@ -116,23 +126,24 @@ export function mountPortfolio(root: HTMLElement): void {
     }, 200)
   }
 
-  root.querySelector('#nextBtn')!.addEventListener('click', () => {
-    current = (current + 1) % SLIDES.length
-    render()
-  })
-  root.querySelector('#prevBtn')!.addEventListener('click', () => {
-    current = (current - 1 + SLIDES.length) % SLIDES.length
-    render()
-  })
+  const next = () => { current = (current + 1) % SLIDES.length; render() }
+  const prev = () => { current = (current - 1 + SLIDES.length) % SLIDES.length; render() }
+
+  root.querySelector('#nextBtn')!.addEventListener('click', next)
+  root.querySelector('#prevBtn')!.addEventListener('click', prev)
+  root.querySelector('#nextBtnInline')!.addEventListener('click', next)
+  root.querySelector('#prevBtnInline')!.addEventListener('click', prev)
 
   new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
   }, { threshold: 0.2 }).observe(card)
 
-  progress.style.transition = 'none'
+  progress.style.transition       = 'none'
+  progressInline.style.transition = 'none'
   updateProgress()
   requestAnimationFrame(() => {
-    progress.style.transition = 'width 0.4s ease'
+    progress.style.transition       = 'width 0.4s ease'
+    progressInline.style.transition = 'width 0.4s ease'
   })
 
   setTimeout(() => {
