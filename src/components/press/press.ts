@@ -1,5 +1,4 @@
 import './press.css'
-import { observeConnector } from '../../utils/connector'
 
 interface PressItem {
   name:     string
@@ -15,35 +14,72 @@ const PRESS_ITEMS: PressItem[] = [
   { name: 'Thrive Global',                            url: '#', featured: false },
 ]
 
+const ARROW_SVG = `
+  <svg class="press-arrow-svg" width="77" height="58" viewBox="0 0 77 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_press)">
+      <path class="arrow-path" d="M62.305 30.5L0.500001 30.5L0.500001 27.5L62.305 27.5C53.72 23.18 48.747 14.221 47.5 0.790002L50.522 0.500001C52.203 18.618 60.747 27.418 76.5 27.418L76.5 30.582C60.747 30.582 52.203 39.382 50.522 57.5L47.5 57.21C48.747 43.779 53.719 34.82 62.305 30.5Z" fill="white"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_press">
+        <rect width="58" height="77" fill="white" transform="translate(2.53526e-06 58) rotate(-90)"/>
+      </clipPath>
+    </defs>
+  </svg>`
+
 function renderItem(item: PressItem): string {
-  const cls = item.featured ? 'press-item featured' : 'press-item'
   return `
-    <a class="${cls}" href="${item.url ?? '#'}" target="_blank" rel="noopener">
+    <a class="press-item" href="${item.url ?? '#'}" target="_blank" rel="noopener">
       <div class="press-info">
         <span class="press-name">${item.name}</span>
         ${item.date ? `<span class="press-date">${item.date}</span>` : ''}
       </div>
-      <span class="press-arrow">→</span>
+      <span class="press-arrow">${ARROW_SVG}</span>
     </a>`
 }
 
 const TEMPLATE = `
 <section id="press">
   <div class="section-header" style="max-width:1200px;margin:0 auto;width:100%">
-    <div class="tag-label">&lt;h3&gt;</div>
-    <h3 class="section-title">My Press</h3>
-    <div class="tag-close">&lt;/h3&gt;</div>
+    <div class="tag-label">&lt;h2&gt;</div>
+    <div style="display:inline-block; position:relative; margin-bottom:90px;">
+      <h2 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Press</h2>
+      <div class="tag-close" style="position:absolute; right:-40px; bottom:-40px;">&lt;/h2&gt;</div>
+    </div>
   </div>
 
   <div class="press-list">
     ${PRESS_ITEMS.map(renderItem).join('\n  ')}
   </div>
 
-  <div class="connector-wrap" style="margin-top:40px">
-    <svg class="connector" height="140" viewBox="0 0 1200 140">
-      <path class="line-path" id="line3"
-        d="M1120,0 L1120,60 Q1120,80 1000,80 L120,80 Q100,80 100,100 L100,140"/>
-      <circle class="line-dot" id="dot3" cx="100" cy="140" r="5"/>
+  <div class="press-connector-wrap">
+    <svg class="press-connector-svg" width="40" height="278" viewBox="0 0 40 278" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="pressLineGlow" x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Top dot glow -->
+      <circle class="press-dot-glow" id="pressDotTopGlow" cx="20" cy="20" r="20" fill="#00FF94" opacity="0"/>
+      <!-- Top dot white -->
+      <circle class="press-dot-white" id="pressDotTop" cx="20" cy="20" r="8" fill="white" opacity="0"/>
+
+      <!-- Vertical line, animated draw -->
+      <line
+        id="pressLine"
+        x1="20" y1="20"
+        x2="20" y2="250"
+        stroke="#00FF94"
+        stroke-width="3"
+        stroke-linecap="round"
+        filter="url(#pressLineGlow)"
+      />
+
+      <!-- Bottom dot glow -->
+      <circle class="press-dot-glow" id="pressDotBottomGlow" cx="20" cy="258" r="20" fill="#00FF94" opacity="0"/>
+      <!-- Bottom dot white -->
+      <circle class="press-dot-white" id="pressDotBottom" cx="20" cy="258" r="8" fill="white" opacity="0"/>
     </svg>
   </div>
 </section>
@@ -52,6 +88,52 @@ const TEMPLATE = `
 export function mountPress(root: HTMLElement): void {
   root.innerHTML = TEMPLATE
 
-  const connWrap = root.querySelector<HTMLElement>('.connector-wrap')!
-  observeConnector(connWrap, 'line3', 'dot3')
+  const connWrap = root.querySelector<HTMLElement>('.press-connector-wrap')!
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animatePressConnector()
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.3 })
+
+  observer.observe(connWrap)
+}
+
+function animatePressConnector(): void {
+  const line         = document.getElementById('pressLine')         as SVGLineElement | null
+  const topGlow      = document.getElementById('pressDotTopGlow')   as SVGCircleElement | null
+  const topDot       = document.getElementById('pressDotTop')       as SVGCircleElement | null
+  const bottomGlow   = document.getElementById('pressDotBottomGlow') as SVGCircleElement | null
+  const bottomDot    = document.getElementById('pressDotBottom')    as SVGCircleElement | null
+
+  if (!line) return
+
+  // Line length = 250 - 20 = 230
+  const lineLen = 230
+  line.style.strokeDasharray  = String(lineLen)
+  line.style.strokeDashoffset = String(lineLen)
+  line.style.transition       = 'none'
+
+  // Show top dot immediately
+  if (topGlow) { topGlow.style.transition = 'opacity 0.3s ease'; topGlow.style.opacity = '0.21' }
+  if (topDot)  { topDot.style.transition  = 'opacity 0.3s ease'; topDot.style.opacity  = '1' }
+
+  // Draw line
+  requestAnimationFrame(() => {
+    line.style.transition = 'stroke-dashoffset 1400ms cubic-bezier(0.4,0,0.2,1)'
+    line.style.strokeDashoffset = '0'
+
+    // Show bottom dot when line finishes
+    setTimeout(() => {
+      if (bottomGlow) {
+        bottomGlow.style.transition = 'opacity 0.4s ease'
+        bottomGlow.style.opacity = '0.21'
+        bottomGlow.style.animation = 'pressGlowPulse 3s ease-in-out infinite'
+      }
+      if (bottomDot)  { bottomDot.style.transition  = 'opacity 0.4s ease'; bottomDot.style.opacity  = '1' }
+    }, 1300)
+  })
 }
