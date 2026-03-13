@@ -40,10 +40,10 @@ function renderItem(item: PressItem): string {
 const TEMPLATE = `
 <section id="press">
   <div class="section-header" style="max-width:1200px;margin:0 auto;width:100%">
-    <div class="tag-label">&lt;h2&gt;</div>
+    <div class="tag-label">&lt;h3&gt;</div>
     <div style="display:inline-block; position:relative; margin-bottom:90px;">
-      <h2 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Press</h2>
-      <div class="tag-close" style="position:absolute; right:-40px; bottom:-40px;">&lt;/h2&gt;</div>
+      <h3 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Press</h3>
+      <div class="tag-close" style="position:absolute; right:-55px; bottom:-45px;">&lt;/h3&gt;</div>
     </div>
   </div>
 

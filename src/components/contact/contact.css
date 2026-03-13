@@ -1,81 +1,90 @@
 #contact {
   background: var(--bg2);
-  align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 80px 60px 60px;
+  position: relative;
 }
 
 .contact-inner {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 100px auto 50px;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
-#contact .section-title { text-align: center; }
+#contact .section-title { text-align: left; }
+#contact .tag-label,
+#contact .tag-close { text-align: left; }
 
-.social-grid {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 60px;
+/* ── floating field ── */
+.social-field {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 520px;
+  margin-top: 20px;
 }
 
 .social-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.social-circle {
-  width: 110px; height: 110px;
+  position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(0,255,136,0.35);
+  border: 1.5px solid var(--green);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   background: transparent;
-  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 16px rgba(0,255,136,0.05);
 }
-.social-circle:hover {
-  border-color: var(--green);
+.social-node:hover {
   background: var(--green-glow);
-  transform: translateY(-6px) scale(1.05);
+  transform: scale(1.05);
   box-shadow: 0 0 30px rgba(0,255,136,0.2);
 }
 
 .social-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
+  font-family: var(--font-secondary);
+  font-size: 18px;
   color: var(--text-dim);
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: center;
 }
 
 .social-name {
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-family: var(--font-secondary);
+  font-size: 21px;
   color: var(--text);
   transition: color 0.3s;
+  text-align: center;
 }
 .social-node:hover .social-name { color: var(--green); }
 
-/* offset positions for organic feel */
-.social-node:nth-child(1) { margin-top: 30px; }
-.social-node:nth-child(2) { margin-top: 0; }
-.social-node:nth-child(3) { margin-top: 55px; }
-.social-node:nth-child(4) { margin-top: 15px; }
-
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  .social-node:nth-child(n) { margin-top: 0; }
-}
-@media (max-width: 600px) {
-  .social-circle { width: 90px; height: 90px; }
-  .social-grid   { gap: 20px; }
+  #contact { padding: 90px 24px 40px; }
+
+  .social-field {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    min-height: unset;
+    margin-top: 40px;
+  }
+
+  .social-node {
+    position: static !important;
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .social-name { font-size: 14px; }
 }

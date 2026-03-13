@@ -30,7 +30,7 @@ const TEMPLATE = `
     <div class="tag-label">&lt;h2&gt;</div>
     <div style="display:inline-block; position:relative; margin-bottom:140px;">
       <h2 class="section-title" id="portfolioTitle" style="margin-left:40px;">My Portfolio</h2>
-      <div class="tag-close" style="position:absolute; right:-40px; bottom:-40px;">&lt;/h2&gt;</div>
+      <div class="tag-close" style="position:absolute; right:-55px; bottom:-45px;">&lt;/h2&gt;</div>
     </div>
   </div>
 
