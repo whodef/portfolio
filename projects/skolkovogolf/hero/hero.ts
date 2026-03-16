@@ -2,12 +2,12 @@ import './hero.css'
 
 // ─── DATA — edit here ─────────────────────────────────────────────────────────
 const HERO = {
-  eyebrow:  'PROJECT 02 — ICE SPORTS PLATFORM',
-  title:    'TheRink',
-  titleSub: '.io',
+  eyebrow:  'PROJECT 01 — ICE SPORTS PLATFORM',
+  title:    'Skolkovo Golf',
+  titleSub: '.com',
   role:     'Lead Developer',
   desc:     'A premium ice sports booking and management platform. Real-time scheduling, equipment rental, multi-rink coordination and analytics dashboards — all in one system built for arenas.',
-  liveHref: 'https://therink.io',
+  liveHref: 'https://skolkovogolf.com/',
 }
 
 /**

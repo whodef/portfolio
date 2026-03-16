@@ -1,26 +1,26 @@
-import '../src/styles/global.css'
+import '../../src/styles/global.css'
 
 history.scrollRestoration = 'manual'
 window.scrollTo(0, 0)
 
-import { mountGlowCursor }    from '../src/utils/glowCursor'
-import { mountLightbox }      from '../src/utils/lightbox'
-import { mountProjectTopNav } from '../src/pages/project/top-nav/top-nav'
+import { mountGlowCursor }    from '../../src/utils/glowCursor'
+import { mountLightbox }      from '../../src/utils/lightbox'
+import { mountProjectTopNav } from '../../src/project/top-nav/top-nav'
 import { mountHero }          from './hero/hero'
-import { mountMetrics }       from '../src/pages/project/metrics/metrics'
-import { mountOverview }      from '../src/pages/project/overview/overview'
-import { mountGallery }       from '../src/pages/project/gallery/gallery'
-import { mountTeam }          from '../src/pages/project/team/team'
-import { mountStack }         from '../src/pages/project/stack/stack'
-import { mountProjectNav }    from '../src/pages/project/project-nav/project-nav'
-import { mountFooter }        from '../src/pages/project/footer/footer'
+import { mountMetrics }       from '../../src/project/metrics/metrics'
+import { mountOverview }      from '../../src/project/overview/overview'
+import { mountGallery }       from '../../src/project/gallery/gallery'
+import { mountTeam }          from '../../src/project/team/team'
+import { mountStack }         from '../../src/project/stack/stack'
+import { mountProjectNav }    from '../../src/project/project-nav/project-nav'
+import { mountFooter }        from '../../src/project/footer/footer'
 
-import type { MetricItem }    from '../src/pages/project/metrics/metrics'
-import type { OverviewData }  from '../src/pages/project/overview/overview'
-import type { GalleryData }   from '../src/pages/project/gallery/gallery'
-import type { TeamMember }    from '../src/pages/project/team/team'
-import type { StackData }     from '../src/pages/project/stack/stack'
-import type { ProjectNavData } from '../src/pages/project/project-nav/project-nav'
+import type { MetricItem }    from '../../src/project/metrics/metrics'
+import type { OverviewData }  from '../../src/project/overview/overview'
+import type { GalleryData }   from '../../src/project/gallery/gallery'
+import type { TeamMember }    from '../../src/project/team/team'
+import type { StackData }     from '../../src/project/stack/stack'
+import type { ProjectNavData } from '../../src/project/project-nav/project-nav'
 
 // ─── PAGE DATA — edit everything here ────────────────────────────────────────
 
@@ -56,7 +56,7 @@ const GALLERY: GalleryData = {
     { label: 'Booking flow — date & time picker', ratio: 'tall'  },
     { label: 'Equipment rental catalogue',        ratio: 'sq'    },
     { label: 'Revenue analytics — operator view', ratio: 'wide'  },
-    { label: 'Mobile PWA — consumer booking',     ratio: 'tall'  },
+    { label: 'Mobile PWA — consumer booking',     ratio: 'tall', src: '/therink/main.png' },
     { label: 'User profile & booking history',    ratio: 'short' },
     { label: 'Admin — multi-rink management',     ratio: 'wide'  },
     { label: 'Notification & confirmation screen', ratio: 'sq'   },
@@ -149,7 +149,7 @@ const slot = (): HTMLDivElement => {
   return d
 }
 
-mountProjectTopNav(slot(), { counter: '02 / 03', homeHref: '../../index.html' })
+mountProjectTopNav(slot(), { counter: '02 / 03', homeHref: '/' })
 mountHero(slot())
 mountMetrics(slot(), METRICS)
 mountOverview(slot(), OVERVIEW)

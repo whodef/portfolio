@@ -5,9 +5,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main:           resolve(__dirname, 'index.html'),
-        projectTherink: resolve(__dirname, 'project-therink/index.html'),
-        projectAlqen:   resolve(__dirname, 'project-alqen/index.html'),
+        main:                  resolve(__dirname, 'index.html'),
+        projectSkolkovoGolf:   resolve(__dirname, 'projects/skolkovogolf/index.html'),
+        projectTherink:        resolve(__dirname, 'projects/therink/index.html'),
       },
     },
   },

@@ -1,5 +1,4 @@
 import './stack.css'
-import { animateConnector } from '../../../utils/connector'
 
 export interface StackGroup {
   label: string
@@ -36,25 +35,6 @@ export function mountStack(root: HTMLElement, d: StackData): void {
               </div>`).join('')}
           </div>
         </div>
-
-        <div class="connector-wrap" style="margin-top:60px">
-          <svg class="connector" height="120" viewBox="0 0 1200 120" overflow="visible">
-            <path class="line-path" id="projStackLine"
-              d="M580,0 L580,40 Q580,60 700,60 L1100,60 Q1120,60 1120,80 L1120,120"/>
-            <circle class="line-dot" id="projStackDot" cx="1120" cy="120" r="5"/>
-          </svg>
-        </div>
       </div>
     </section>`
-
-  const wrap = root.querySelector<HTMLElement>('.connector-wrap')!
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateConnector('projStackLine', 'projStackDot')
-        obs.unobserve(e.target)
-      }
-    })
-  }, { threshold: 0.3 })
-  obs.observe(wrap)
 }
