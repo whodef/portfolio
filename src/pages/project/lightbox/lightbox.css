@@ -1,0 +1,35 @@
+.proj-lightbox {
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(8,11,14,0.96);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.proj-lightbox.open { opacity: 1; pointer-events: all; }
+
+.proj-lb-inner {
+  max-width: 85vw; max-height: 85vh;
+  border: 1px solid var(--border);
+  border-radius: 4px; overflow: hidden;
+  background: var(--bg2);
+}
+.proj-lb-ph {
+  width: 80vw; height: 60vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+}
+.proj-lb-num {
+  font-family: var(--font-mono); font-size: 12px;
+  color: rgba(0,255,136,0.4); letter-spacing: 2px;
+}
+.proj-lb-lbl {
+  font-family: var(--font-secondary); font-size: 14px; color: var(--text-dim);
+}
+.proj-lb-close {
+  position: absolute; top: 28px; right: 36px;
+  font-family: var(--font-body); font-size: 22px;
+  color: var(--text-dim); cursor: pointer;
+  transition: color 0.2s; z-index: 10;
+}
+.proj-lb-close:hover { color: var(--green); }

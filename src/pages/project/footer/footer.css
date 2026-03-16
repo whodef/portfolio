@@ -1,0 +1,23 @@
+.proj-footer {
+  background: var(--bg);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 48px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.proj-footer-logo {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  color: var(--text);
+  letter-spacing: -2px;
+}
+.proj-footer-logo span { color: var(--green); }
+
+.proj-footer-sub {
+  font-family: var(--font-secondary);
+  font-size: 13px;
+  color: var(--text-dim);
+}

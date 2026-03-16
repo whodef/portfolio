@@ -1,0 +1,74 @@
+/* ─── shared section wrapper used by overview, gallery, team, stack ─── */
+.proj-section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.proj-overview {
+  background: var(--bg);
+  padding: 100px 60px;
+  min-height: unset;
+}
+
+.proj-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 80px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.proj-overview-body p {
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+.proj-overview-body p:last-child { margin-bottom: 0; }
+
+/* ─── Info card ─── */
+.proj-info-card {
+  background: var(--bg2);
+  border: 1px solid rgba(0,255,136,0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.proj-info-header {
+  background: var(--bg);
+  padding: 16px 24px;
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 3px;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(0,255,136,0.1);
+}
+.proj-info-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.proj-info-row:last-child { border-bottom: none; }
+.proj-info-key {
+  font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: 2px;
+  color: var(--text-dim); padding-top: 2px;
+}
+.proj-info-val {
+  font-family: var(--font-secondary);
+  font-size: 14px; color: var(--text); line-height: 1.5;
+}
+.proj-info-val.green { color: var(--green); }
+.proj-info-val a { color: rgba(100,180,255,0.8); text-decoration: none; }
+.proj-info-val a:hover { color: rgba(100,180,255,1); }
+
+@media (max-width: 1000px) {
+  .proj-overview-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 900px) {
+  .proj-overview { padding: 72px 32px; }
+}
+@media (max-width: 600px) {
+  .proj-overview { padding: 60px 16px; }
+}

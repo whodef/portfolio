@@ -1,0 +1,97 @@
+.proj-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 60px 80px;
+  background: var(--bg);
+}
+
+.proj-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,255,136,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 80% at 10% 80%, rgba(0,255,136,0.02) 0%, transparent 60%);
+}
+.proj-hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(  0deg, transparent, transparent 79px, rgba(0,255,136,0.015) 80px),
+    repeating-linear-gradient( 90deg, transparent, transparent 79px, rgba(0,255,136,0.015) 80px);
+}
+
+.proj-hero-text {
+  max-width: 780px;
+  position: relative; z-index: 2;
+  animation: fadeUp 0.8s ease both;
+}
+
+.proj-hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 3px; color: var(--text-dim);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.proj-hero-eyebrow::before {
+  content: ''; width: 40px; height: 1px;
+  background: var(--green); flex-shrink: 0;
+}
+
+.proj-hero-title {
+  font-family: var(--font-mono);
+  font-size: clamp(56px, 6vw, 92px);
+  font-weight: 700; color: var(--text);
+  line-height: 0.95; letter-spacing: -4px;
+  margin-bottom: 28px;
+}
+.proj-hero-sub {
+  color: rgba(100,180,255,0.6);
+  letter-spacing: -2px;
+}
+
+.proj-hero-role {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px;
+  color: var(--green);
+  border: 1px solid rgba(0,255,136,0.3); padding: 8px 18px; border-radius: 2px;
+  background: var(--green-glow); margin-bottom: 28px;
+}
+.proj-hero-role::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 6px var(--green); flex-shrink: 0;
+}
+
+.proj-hero-desc {
+  font-family: var(--font-secondary);
+  font-size: 16px; color: var(--text-dim);
+  line-height: 1.85; max-width: 580px; margin-bottom: 40px;
+}
+
+.proj-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ─── Shared CTA button styles (also used by therink hero) ─── */
+.btn-primary {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px;
+  color: var(--bg); background: var(--green);
+  border: none; padding: 14px 30px; border-radius: 2px;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s, transform 0.2s; cursor: pointer;
+}
+.btn-primary:hover { background: #00ffaa; transform: translateY(-2px); }
+
+.btn-ghost {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px;
+  color: rgba(100,180,255,0.8); background: transparent;
+  border: 1px solid rgba(100,180,255,0.25); padding: 14px 30px; border-radius: 2px;
+  text-decoration: none; display: inline-block;
+  transition: all 0.2s; cursor: pointer;
+}
+.btn-ghost:hover {
+  border-color: rgba(100,180,255,0.6);
+  background: rgba(100,180,255,0.06);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) { .proj-hero { padding: 100px 32px 80px; } }
+@media (max-width: 600px) { .proj-hero { padding: 90px 16px 70px; } }
