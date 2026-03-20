@@ -133,8 +133,8 @@ const STACK: StackData = {
 }
 
 const NAV: ProjectNavData = {
-  prev: { label: 'Alqen.IO',   href: '../project-alqen/index.html' },
-  next: { label: 'SportsPari', href: '../project-sportspari/index.html' },
+  // prev: { label: 'Alqen.IO',   href: '../project-alqen/' },
+  next: { label: 'The Rink', href: '../therink/' },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
