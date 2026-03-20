@@ -2,12 +2,12 @@ import './hero.css'
 
 // ─── DATA — edit here ─────────────────────────────────────────────────────────
 const HERO = {
-  eyebrow:  'PROJECT 02 — ICE SPORTS PLATFORM',
-  title:    'TheRink',
-  titleSub: '.ru',
-  role:     'Lead Developer',
-  desc:     'A premium ice sports booking and management platform. Real-time scheduling, equipment rental, multi-rink coordination and analytics dashboards — all in one system built for arenas.',
-  liveHref: 'https://therink.ru',
+  eyebrow:  'PROJECT 02 — SPORTS & LEISURE VENUE',
+  title:    'The',
+  titleSub: 'Rink',
+  role:     'Frontend Lead',
+  desc:     'An informational and booking platform for a Moscow sports complex — ice rink in winter, padel, tennis and outdoor activities in summer. Features an events calendar, interactive venue map with seasonal switching, ticket purchase and gift certificate flows.',
+  liveHref: 'https://therink.ru/',
 }
 
 /**
@@ -24,10 +24,10 @@ const SCHEDULE: [string, string, string, string, string, string, string][] = [
 const STATS = [
   { val: '94%',  lbl: 'Occupancy today' },
   { val: '38',   lbl: 'Active bookings' },
-  { val: '$4.2k', lbl: 'Revenue today'  },
+  { val: '4.2', lbl: 'Revenue today'  },
 ]
 
-const BADGE = { label: 'NEW BOOKING', sub: 'Rink B · 14:00' }
+const BADGE = { label: 'NEW BOOKING', sub: 'Rink · 14:00' }
 // ─────────────────────────────────────────────────────────────────────────────
 
 const DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
@@ -63,7 +63,7 @@ const TEMPLATE = `
           <div class="tr-dot r"></div>
           <div class="tr-dot y"></div>
           <div class="tr-dot g"></div>
-          <div class="tr-urlbar"><span>therink</span>.io/schedule</div>
+          <div class="tr-urlbar"><span>therink</span>.ru/schedule</div>
         </div>
         <div class="tr-content">
           <div class="tr-sched-head">

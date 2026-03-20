@@ -1,3 +1,4 @@
+//@ts-ignore
 import '../../src/styles/global.css'
 
 history.scrollRestoration = 'manual'
@@ -15,52 +16,51 @@ import { mountStack }         from '../../src/project/stack/stack'
 import { mountProjectNav }    from '../../src/project/project-nav/project-nav'
 import { mountFooter }        from '../../src/project/footer/footer'
 
-import type { MetricItem }    from '../../src/project/metrics/metrics'
-import type { OverviewData }  from '../../src/project/overview/overview'
-import type { GalleryData }   from '../../src/project/gallery/gallery'
-import type { TeamMember }    from '../../src/project/team/team'
-import type { StackData }     from '../../src/project/stack/stack'
+import type { MetricItem }     from '../../src/project/metrics/metrics'
+import type { OverviewData }   from '../../src/project/overview/overview'
+import type { GalleryData }    from '../../src/project/gallery/gallery'
+import type { TeamMember }     from '../../src/project/team/team'
+import type { StackData }      from '../../src/project/stack/stack'
 import type { ProjectNavData } from '../../src/project/project-nav/project-nav'
 
-// ─── PAGE DATA — edit everything here ────────────────────────────────────────
+// ─── PAGE DATA ────────────────────────────────────────────────────────────────
 
 const METRICS: MetricItem[] = [
-  { val: '+62%',  desc: 'Increase in rink occupancy within 60 days of launch',    source: '// BOOKING ANALYTICS' },
-  { val: '3.8×',  desc: 'Faster booking flow vs. previous phone-based system',     source: '// UX RESEARCH'        },
-  { val: '12',    desc: 'Ice arenas onboarded in the first production quarter',    source: '// GROWTH DATA'        },
-  { val: '99.7%', desc: 'Uptime with real-time conflict resolution',               source: '// INFRA MONITORING'   },
+  { val: '5',    desc: 'Person core team, plus external contractors for ticketing and gift certificates',      source: '// TEAM'    },
+  { val: '3+',   desc: 'Activity verticals on one platform — ice rink, padel, tennis, table tennis, pétanque', source: '// PRODUCT' },
+  { val: 'Live', desc: 'Seasonal production site — peaks in winter with ice rink ticket sales',                source: '// STATUS'  },
+  { val: '1',    desc: 'Unified platform replacing phone-based scheduling across all activities',              source: '// IMPACT'  },
 ]
 
 const OVERVIEW: OverviewData = {
   paragraphs: [
-    'TheRink.io was born from a real operational problem: ice arena managers running scheduling on spreadsheets, fielding bookings by phone and losing revenue to double-bookings and manual errors.',
-    'As Lead Developer I architected the full system from scratch — real-time scheduling engine with conflict detection, a multi-tenant dashboard for arena operators, a consumer-facing booking flow and an equipment rental module with inventory tracking.',
-    'The platform handles concurrent bookings across multiple rinks with sub-100ms conflict resolution using an optimistic locking strategy in PostgreSQL backed by a Redis pub/sub layer for live UI updates.',
-    'Equipment rental was the highest-ROI feature post-launch: arenas reported 40% additional revenue per session when rental was surfaced inline during booking rather than at the counter.',
+    'The Rink is a multi-activity sports and leisure venue in Moscow — an ice rink in winter, and a full outdoor complex in summer with padel courts, tennis, table tennis, pétanque, and a café.',
+    'As Frontend Lead I led the frontend team alongside one other frontend developer. The site is primarily informational — showcasing the venue, events calendar, and complex map — with integrated flows for ice rink ticket purchase and gift certificates handled via third-party contractors.',
+    'One of the key features I built was the interactive venue map with seasonal switching between the winter and summer versions of the complex — giving visitors a clear visual overview of everything available depending on the time of year.',
+    'The site is seasonal by nature, peaking sharply in winter around ice rink bookings. Production support and performance under load were an ongoing part of the work.',
   ],
   meta: [
-    { key: 'ROLE',      val: 'Lead Developer',      green: true  },
-    { key: 'TIMELINE',  val: '2023 — 2024'                       },
-    { key: 'TYPE',      val: 'SaaS / Sports Tech'                },
-    { key: 'TEAM SIZE', val: '5 people'                          },
-    { key: 'PLATFORM',  val: 'Web + Mobile PWA'                  },
-    { key: 'STATUS',    val: 'Live · 12 arenas',    green: true  },
-    { key: 'SITE',      val: 'therink.io →',        link: 'https://therink.io' },
+    { key: 'ROLE',      val: 'Frontend Lead',           green: true },
+    { key: 'TYPE',      val: 'Venue & Booking Platform'             },
+    { key: 'TEAM',      val: '5 core + contractors'                 },
+    { key: 'PLATFORM',  val: 'Web + Mobile'                         },
+    { key: 'STACK',     val: 'Next.js · Python · Wagtail'           },
+    { key: 'STATUS',    val: 'Live · seasonal',          green: true },
+    { key: 'SITE',      val: 'therink.ru →',             link: 'https://therink.ru' },
   ],
 }
 
 const GALLERY: GalleryData = {
-  lead: 'Scheduling dashboard, booking flow, equipment module and mobile views. Replace placeholders by setting the src field in each item.',
+  lead: 'From the interactive venue map to ticket purchase flows — a full walkthrough of the platform across both seasons.',
   items: [
-    { label: 'Main scheduling dashboard',         ratio: 'wide'  },
-    { label: 'Booking flow — date & time picker', ratio: 'tall'  },
-    { label: 'Equipment rental catalogue',        ratio: 'sq'    },
-    { label: 'Revenue analytics — operator view', ratio: 'wide'  },
-    { label: 'Mobile PWA — consumer booking',     ratio: 'tall', src: '/therink/main.png' },
-    { label: 'User profile & booking history',    ratio: 'short' },
-    { label: 'Admin — multi-rink management',     ratio: 'wide'  },
-    { label: 'Notification & confirmation screen', ratio: 'sq'   },
-    // To add a real screenshot: { label: '...', ratio: 'wide', src: './screenshots/01.png' }
+    { label: 'Homepage — winter season',        ratio: 'wide',  src: '/therink/homepage_winter_season.webp' },
+    { label: 'Ice rink ticket purchase flow',   ratio: 'tall',  src: '/therink/ice_rink_ticket_purchase_flow.webp' },
+    { label: 'Activity booking — padel courts', ratio: 'sq',    src: '/therink/activity_booking.webp' },
+    { label: 'Summer complex overview',         ratio: 'wide',  src: '/therink/summer_complex_overview.webp' },
+    { label: 'Mobile — homepage',               ratio: 'tall',  src: '/therink/main.webp' },
+    { label: 'Events & schedule page',          ratio: 'short', src: '/therink/schedule_page.webp' },
+    { label: 'Homepage — summer season',        ratio: 'wide',  src: '/therink/homepage_summer_season.webp' },
+    { label: 'Gift certificate flow',           ratio: 'sq',    src: '/therink/gift_certificate_flow.webp' },
   ],
 }
 
@@ -68,73 +68,74 @@ const TEAM: TeamMember[] = [
   {
     initials: 'TS',
     name:     'Tatiana Seliuk',
-    role:     'Lead Developer — architecture, backend, frontend, DevOps',
-    tags:     ['TypeScript', 'React', 'Node.js', 'AWS'],
+    role:     'Frontend Lead — venue map, events calendar, booking flows, prod support',
+    tags:     ['Next.js', 'TypeScript', 'CSS Modules', 'Review'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['DESIGN', 'FIGMA'],
+    name:     'Frontend Developer',
+    role:     'UI components, pages, responsive layouts',
+    tags:     ['Next.js', 'TypeScript', 'SCSS'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['BACKEND', 'DB'],
+    name:     'Backend Developer',
+    role:     'API design, database architecture, server-side logic',
+    tags:     ['Python', 'Wagtail', 'PostgreSQL'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['MOBILE', 'PWA'],
+    name:     'Project Manager',
+    role:     'Timeline, client communication, delivery coordination',
+    tags:     ['PM', 'Review', 'Testing'],
+  },
+  {
+    initials: '—',
+    name:     'CTO',
+    role:     'Product vision, business decisions, stakeholder management',
+    tags:     ['PRODUCT', 'STRATEGY'],
   },
 ]
 
 const STACK: StackData = {
   paragraphs: [
-    'Architected for real-time multi-tenancy. The scheduling engine uses PostgreSQL advisory locks with a Redis pub/sub layer — every open browser tab sees slot changes in under 200ms without polling.',
-    'The consumer PWA hits Lighthouse 98 on mobile, making it fast enough to open in the arena lobby on any device with spotty Wi-Fi.',
+    'Built as a unified platform serving multiple activity verticals — ice rink, padel, tennis, and more — with seasonal content switching. Content is managed via Wagtail CMS, giving the venue team full control over pages, events, and the seasonal map without touching code.',
+    'The frontend is Next.js with TypeScript, optimised for seasonal traffic spikes in winter. External ticketing and gift certificate modules were integrated via clean API contracts with third-party contractors.',
   ],
   groups: [
     {
       label: 'FRONTEND',
       pills: [
-        { name: 'TypeScript', hero: true },
-        { name: 'React',      hero: true },
-        { name: 'Vite' },
-        { name: 'TanStack Query' },
-        { name: 'Zustand' },
-        { name: 'PWA' },
+        { name: 'Next.js',      hero: true },
+        { name: 'TypeScript',   hero: true },
+        { name: 'CSS Modules' },
+        { name: 'Mobile-first', hero: true },
       ],
     },
     {
       label: 'BACKEND',
       pills: [
-        { name: 'Node.js',  hero: true },
-        { name: 'GraphQL' },
-        { name: 'Prisma' },
-        { name: 'WebSockets' },
+        { name: 'Python',     hero: true },
+        { name: 'Wagtail',    hero: true },
+        { name: 'PostgreSQL', hero: true },
         { name: 'REST API' },
       ],
     },
     {
-      label: 'DATA & INFRA',
+      label: 'INFRA & INTEGRATIONS',
       pills: [
-        { name: 'PostgreSQL', hero: true },
-        { name: 'Redis',      hero: true },
-        { name: 'Stripe' },
-        { name: 'AWS' },
         { name: 'Docker' },
-        { name: 'GitHub Actions' },
+        { name: 'GitHub CI' },
+        { name: 'Ticketing API' },
+        { name: 'Payment Gateway' },
       ],
     },
   ],
 }
 
 const NAV: ProjectNavData = {
-  prev: { label: 'Skolkovo Golf',   href: '../skolkovogolf/' },
-  next: { label: 'SportsPari', href: '../project-sportspari/index.html' },
+  prev: { label: 'Skolkovo Golf', href: '../skolkovogolf/' },
+  // next: { label: 'SportsPari',    href: '../sportspari/' },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -149,7 +150,10 @@ const slot = (): HTMLDivElement => {
   return d
 }
 
-mountProjectTopNav(slot(), { counter: '02 / 03', homeHref: '/' })
+mountProjectTopNav(slot(), {
+  counter: '02 / 03',
+  homeHref: '/'
+})
 mountHero(slot())
 mountMetrics(slot(), METRICS)
 mountOverview(slot(), OVERVIEW)

@@ -1,3 +1,4 @@
+//@ts-ignore
 import '../../src/styles/global.css'
 
 history.scrollRestoration = 'manual'
@@ -15,52 +16,51 @@ import { mountStack }         from '../../src/project/stack/stack'
 import { mountProjectNav }    from '../../src/project/project-nav/project-nav'
 import { mountFooter }        from '../../src/project/footer/footer'
 
-import type { MetricItem }    from '../../src/project/metrics/metrics'
-import type { OverviewData }  from '../../src/project/overview/overview'
-import type { GalleryData }   from '../../src/project/gallery/gallery'
-import type { TeamMember }    from '../../src/project/team/team'
-import type { StackData }     from '../../src/project/stack/stack'
+import type { MetricItem }     from '../../src/project/metrics/metrics'
+import type { OverviewData }   from '../../src/project/overview/overview'
+import type { GalleryData }    from '../../src/project/gallery/gallery'
+import type { TeamMember }     from '../../src/project/team/team'
+import type { StackData }      from '../../src/project/stack/stack'
 import type { ProjectNavData } from '../../src/project/project-nav/project-nav'
 
-// ─── PAGE DATA — edit everything here ────────────────────────────────────────
+// ─── PAGE DATA ────────────────────────────────────────────────────────────────
 
 const METRICS: MetricItem[] = [
-  { val: '+62%',  desc: 'Increase in rink occupancy within 60 days of launch',    source: '// BOOKING ANALYTICS' },
-  { val: '3.8×',  desc: 'Faster booking flow vs. previous phone-based system',     source: '// UX RESEARCH'        },
-  { val: '12',    desc: 'Ice arenas onboarded in the first production quarter',    source: '// GROWTH DATA'        },
-  { val: '99.7%', desc: 'Uptime with real-time conflict resolution',               source: '// INFRA MONITORING'   },
+  { val: '4',    desc: 'Person team — Frontend, Backend, PM, and CTO delivering a premium digital product',  source:  '// TEAM'    },
+  { val: '18',   desc: 'Hole Jack Nicklaus Signature course with dedicated booking and tee-time flows',      source:  '// GOLF'    },
+  { val: '1',    desc: 'Members-only personal cabinet built end-to-end: bookings, profile, status',          source:  '// PRODUCT' },
+  { val: 'Live', desc: 'Production site maintained post-launch — deployments, hotfixes, feature iterations', source:  '// OPS'     },
 ]
 
 const OVERVIEW: OverviewData = {
   paragraphs: [
-    'TheRink.io was born from a real operational problem: ice arena managers running scheduling on spreadsheets, fielding bookings by phone and losing revenue to double-bookings and manual errors.',
-    'As Lead Developer I architected the full system from scratch — real-time scheduling engine with conflict detection, a multi-tenant dashboard for arena operators, a consumer-facing booking flow and an equipment rental module with inventory tracking.',
-    'The platform handles concurrent bookings across multiple rinks with sub-100ms conflict resolution using an optimistic locking strategy in PostgreSQL backed by a Redis pub/sub layer for live UI updates.',
-    'Equipment rental was the highest-ROI feature post-launch: arenas reported 40% additional revenue per session when rental was surfaced inline during booking rather than at the counter.',
+    'Skolkovo Golf Club is one of Russia\'s most prestigious private golf clubs, located 20 minutes from central Moscow. The course was personally designed by Jack Nicklaus, earning it the Jack Nicklaus Signature status — the highest designation in golf course architecture.',
+    'I joined an existing frontend team and took full ownership of the members-only personal cabinet — built end-to-end: booking history, profile management, and membership status with CMS integration via Wagtail (Django).',
+    'Beyond the cabinet, I contributed directly to the main site codebase on GitLab — developed a complete hole-by-hole course page and built an animated interactive map of the entire golf club grounds from scratch.',
+    'Post-launch I supported the production site — handling deployments, bug fixes, and new feature delivery as the club\'s needs evolved.',
   ],
   meta: [
-    { key: 'ROLE',      val: 'Lead Developer',      green: true  },
-    { key: 'TIMELINE',  val: '2023 — 2024'                       },
-    { key: 'TYPE',      val: 'SaaS / Sports Tech'                },
-    { key: 'TEAM SIZE', val: '5 people'                          },
-    { key: 'PLATFORM',  val: 'Web + Mobile PWA'                  },
-    { key: 'STATUS',    val: 'Live · 12 arenas',    green: true  },
-    { key: 'SITE',      val: 'therink.io →',        link: 'https://therink.io' },
+    { key: 'ROLE',      val: 'Frontend Developer',  green: true },
+    { key: 'CLIENT',    val: 'Skolkovo Golf Club'               },
+    { key: 'TYPE',      val: 'Premium Club Website'             },
+    { key: 'PLATFORM',  val: 'Web'                              },
+    { key: 'STACK',     val: 'Next.js · Django · Wagtail'       },
+    { key: 'STATUS',    val: 'Live · maintained',   green: true },
+    { key: 'SITE',      val: 'skolkovogolf.com →',  link: 'https://skolkovogolf.com' },
   ],
 }
 
 const GALLERY: GalleryData = {
-  lead: 'Scheduling dashboard, booking flow, equipment module and mobile views. Replace placeholders by setting the src field in each item.',
+  lead: 'Homepage, member cabinet, booking flows, events and mobile views. Add real screenshots by setting the src field.',
   items: [
-    { label: 'Main scheduling dashboard',         ratio: 'wide'  },
-    { label: 'Booking flow — date & time picker', ratio: 'tall'  },
-    { label: 'Equipment rental catalogue',        ratio: 'sq'    },
-    { label: 'Revenue analytics — operator view', ratio: 'wide'  },
-    { label: 'Mobile PWA — consumer booking',     ratio: 'tall', src: '/therink/main.png' },
-    { label: 'User profile & booking history',    ratio: 'short' },
-    { label: 'Admin — multi-rink management',     ratio: 'wide'  },
-    { label: 'Notification & confirmation screen', ratio: 'sq'   },
-    // To add a real screenshot: { label: '...', ratio: 'wide', src: './screenshots/01.png' }
+    { label: 'Homepage — hero & parallax',          ratio: 'wide', src: '/skolkovogolf/homepage.webp'  },
+    { label: 'Course overview page',                ratio: 'wide', src: '/skolkovogolf/course_overview.webp'  },
+    { label: 'Member personal cabinet',             ratio: 'tall'  },
+    { label: 'Tee-time booking flow',               ratio: 'sq'    },
+    { label: 'Events & calendar page',              ratio: 'wide'  },
+    { label: 'Booking history — cabinet view',      ratio: 'short' },
+    { label: 'Mobile — homepage',                   ratio: 'tall'  },
+    { label: 'CMS — content management view',       ratio: 'sq'    },
   ],
 }
 
@@ -68,72 +68,75 @@ const TEAM: TeamMember[] = [
   {
     initials: 'TS',
     name:     'Tatiana Seliuk',
-    role:     'Lead Developer — architecture, backend, frontend, DevOps',
-    tags:     ['TypeScript', 'React', 'Node.js', 'AWS'],
+    role:     'Frontend Developer. Personal cabinet, hole page, animated club map, prod support',
+    tags:     ['Next.js', 'TypeScript', 'SCSS'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['DESIGN', 'FIGMA'],
+    name:     'Frontend Team',
+    role:     'Core site architecture and main pages — existing team on the project',
+    tags:     ['Next.js', 'SCSS'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['BACKEND', 'DB'],
+    name:     'Backend Developer',
+    role:     'Backend architecture, API design, database, server-side logic',
+    tags:     ['Django', 'PostgreSQL'],
   },
   {
     initials: '—',
-    name:     'Teammate Name',
-    role:     'Replace with actual name and role',
-    tags:     ['MOBILE', 'PWA'],
+    name:     'Project Manager',
+    role:     'Timeline, client communication, delivery coordination, testing & review',
+    tags:     ['PM', 'Review', 'Testing'],
+  },
+  {
+    initials: '—',
+    name:     'CTO',
+    role:     'Product vision, business decisions, stakeholder management',
+    tags:     ['PRODUCT', 'STRATEGY'],
   },
 ]
 
 const STACK: StackData = {
   paragraphs: [
-    'Architected for real-time multi-tenancy. The scheduling engine uses PostgreSQL advisory locks with a Redis pub/sub layer — every open browser tab sees slot changes in under 200ms without polling.',
-    'The consumer PWA hits Lighthouse 98 on mobile, making it fast enough to open in the arena lobby on any device with spotty Wi-Fi.',
+    'The frontend is built on Next.js with TypeScript and SCSS modules — chosen for SSR performance and SEO, critical for a premium brand where first impressions matter. All animations are scroll-driven, implemented in vanilla JS without animation libraries to keep the bundle lean.',
+    'Content is managed through Wagtail CMS on Django, giving the club\'s editorial team full autonomy over pages, events, and media. The members-only cabinet connects to the Django REST API with session-based auth and role-based access for different membership tiers.',
   ],
   groups: [
     {
       label: 'FRONTEND',
       pills: [
+        { name: 'Next.js',    hero: true },
         { name: 'TypeScript', hero: true },
-        { name: 'React',      hero: true },
-        { name: 'Vite' },
-        { name: 'TanStack Query' },
-        { name: 'Zustand' },
-        { name: 'PWA' },
+        { name: 'SCSS' },
+        { name: 'Vanilla JS' },
+        { name: 'SSR' },
       ],
     },
     {
-      label: 'BACKEND',
+      label: 'CMS & BACKEND',
       pills: [
-        { name: 'Node.js',  hero: true },
-        { name: 'GraphQL' },
-        { name: 'Prisma' },
-        { name: 'WebSockets' },
+        { name: 'Django',   hero: true },
+        { name: 'Wagtail',  hero: true },
+        { name: 'Python' },
         { name: 'REST API' },
+        { name: 'PostgreSQL' },
       ],
     },
     {
-      label: 'DATA & INFRA',
+      label: 'INFRA & TOOLS',
       pills: [
-        { name: 'PostgreSQL', hero: true },
-        { name: 'Redis',      hero: true },
-        { name: 'Stripe' },
-        { name: 'AWS' },
-        { name: 'Docker' },
-        { name: 'GitHub Actions' },
+        { name: 'Docker',          hero: true },
+        { name: 'Git' },
+        { name: 'Nginx' },
+        { name: 'Linux' },
       ],
     },
   ],
 }
 
 const NAV: ProjectNavData = {
-  // prev: { label: 'Alqen.IO',   href: '../project-alqen/' },
+  // prev: { label: 'Alqen.IO', href: '../project-alqen/' },
   next: { label: 'The Rink', href: '../therink/' },
 }
 
@@ -149,7 +152,10 @@ const slot = (): HTMLDivElement => {
   return d
 }
 
-mountProjectTopNav(slot(), { counter: '02 / 03', homeHref: '/' })
+mountProjectTopNav(slot(), {
+  counter: '08 / 09',
+  homeHref: '/'
+})
 mountHero(slot())
 mountMetrics(slot(), METRICS)
 mountOverview(slot(), OVERVIEW)

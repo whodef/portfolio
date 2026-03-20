@@ -12,25 +12,25 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     title: 'Skolkovo Golf',
-    desc:  'Alqen.io is an AI e-commerce platform that increases profits and accelerates the operation process swiftly using advanced data and high-performance algorithms.',
-    role:  'FOUNDER AND CEO',
-    href: '/projects/skolkovogolf/',
-    // img:  '/screenshots/alqen.png',
+    desc:  'Digital platform for one of Russia\'s most exclusive private golf clubs — personal member cabinet, interactive animated venue map, hole-by-hole course page, and CMS integration.',
+    role:  'FRONTEND DEVELOPER',
+    href:  '/projects/skolkovogolf/',
+    img:  '/skolkovogolf/homepage.webp',
   },
   {
-    title: 'TheRink.io',
-    desc:  'A premium ice sports booking and management platform with real-time scheduling, equipment rental, and analytics dashboards.',
-    role:  'LEAD DEVELOPER',
+    title: 'The Rink',
+    desc:  'Venue platform for a Moscow sports complex — ice rink in winter, padel and tennis in summer. Interactive seasonal map, events calendar, ticket purchase and gift certificate flows.',
+    role:  'FRONTEND LEAD',
     href:  '/projects/therink/',
-    img:  '/therink/main.png',
+    img:   '/therink/main.webp',
   },
-  {
-    title: 'SportsPari',
-    desc:  'Microservices-based sports betting platform using Protocol Buffers, real-time data feeds, and advanced risk management systems.',
-    role:  'FULL-STACK ARCHITECT',
-    // href: '/project-sportspari/',
-    // img:  '/screenshots/sportspari.png',
-  },
+  // {
+  //   title: 'SportsPari',
+  //   desc:  'Microservices-based sports betting platform using Protocol Buffers, real-time data feeds, and advanced risk management systems.',
+  //   role:  'FULL-STACK ARCHITECT',
+  //   // href: '/projects/sportspari/',
+  //   // img:  '/sportspari/main.png',
+  // },
 ]
 
 // Мок-экран (показывается когда img не задан)

@@ -8,7 +8,7 @@ interface PressItem {
 }
 
 const PRESS_ITEMS: PressItem[] = [
-  { name: 'New great project', date: 'Just coming soon', url: '#', featured: true  },
+  { name: 'More projects dropping soon', date: 'Stay tuned', url: '#', featured: true }
   // { name: 'Yahoo! Finance',                           url: '#', featured: false },
   // { name: 'Medium',                                   url: '#', featured: false },
   // { name: 'Thrive Global',                            url: '#', featured: false },
@@ -42,7 +42,7 @@ const TEMPLATE = `
   <div class="press-section-header">
     <div class="tag-label">&lt;h3&gt;</div>
     <div class="press-title-wrap">
-      <h3 class="section-title">My Projects</h3>
+      <h3 class="section-title">Side Projects</h3>
       <div class="tag-close">&lt;/h3&gt;</div>
     </div>
   </div>
