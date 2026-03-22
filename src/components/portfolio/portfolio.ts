@@ -15,14 +15,14 @@ const SLIDES: Slide[] = [
     desc:  'Digital platform for one of Russia\'s most exclusive private golf clubs — personal member cabinet, interactive animated venue map, hole-by-hole course page, and CMS integration.',
     role:  'FRONTEND DEVELOPER',
     href:  '/portfolio/projects/skolkovogolf/',
-    img:   '/portfolio/skolkovogolf/homepage.webp',
+    img:   '/portfolio/skolkovogolf/golf.webp',
   },
   {
     title: 'The Rink',
     desc:  'Venue platform for a Moscow sports complex — ice rink in winter, padel and tennis in summer. Interactive seasonal map, events calendar, ticket purchase and gift certificate flows.',
     role:  'FRONTEND LEAD',
     href:  '/portfolio/projects/therink/',
-    img:   '/portfolio/therink/main.webp',
+    img:   '/portfolio/therink/rink.webp',
   },
   // {
   //   title: 'SportsPari',
