@@ -53,14 +53,14 @@ const OVERVIEW: OverviewData = {
 const GALLERY: GalleryData = {
   lead: 'From the interactive venue map to ticket purchase flows — a full walkthrough of the platform across both seasons.',
   items: [
-    { label: 'Homepage — winter season',        ratio: 'wide',  src: '/therink/homepage_winter_season.webp' },
-    { label: 'Ice rink ticket purchase flow',   ratio: 'tall',  src: '/therink/ice_rink_ticket_purchase_flow.webp' },
-    { label: 'Activity booking — padel courts', ratio: 'sq',    src: '/therink/activity_booking.webp' },
-    { label: 'Summer complex overview',         ratio: 'wide',  src: '/therink/summer_complex_overview.webp' },
-    { label: 'Mobile — homepage',               ratio: 'tall',  src: '/therink/main.webp' },
-    { label: 'Events & schedule page',          ratio: 'short', src: '/therink/schedule_page.webp' },
-    { label: 'Homepage — summer season',        ratio: 'wide',  src: '/therink/homepage_summer_season.webp' },
-    { label: 'Gift certificate flow',           ratio: 'sq',    src: '/therink/gift_certificate_flow.webp' },
+    { label: 'Homepage — winter season',        ratio: 'wide',  src: '/portfolio/therink/homepage_winter_season.webp' },
+    { label: 'Ice rink ticket purchase flow',   ratio: 'tall',  src: '/portfolio/therink/ice_rink_ticket_purchase_flow.webp' },
+    { label: 'Activity booking — padel courts', ratio: 'sq',    src: '/portfolio/therink/activity_booking.webp' },
+    { label: 'Summer complex overview',         ratio: 'wide',  src: '/portfolio/therink/summer_complex_overview.webp' },
+    { label: 'Mobile — homepage',               ratio: 'tall',  src: '/portfolio/therink/main.webp' },
+    { label: 'Events & schedule page',          ratio: 'short', src: '/portfolio/therink/schedule_page.webp' },
+    { label: 'Homepage — summer season',        ratio: 'wide',  src: '/portfolio/therink/homepage_summer_season.webp' },
+    { label: 'Gift certificate flow',           ratio: 'sq',    src: '/portfolio/therink/gift_certificate_flow.webp' },
   ],
 }
 
@@ -152,7 +152,7 @@ const slot = (): HTMLDivElement => {
 
 mountProjectTopNav(slot(), {
   counter: '02 / 03',
-  homeHref: '/'
+  homeHref: '/portfolio/'
 })
 mountHero(slot())
 mountMetrics(slot(), METRICS)

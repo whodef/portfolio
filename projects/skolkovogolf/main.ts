@@ -53,8 +53,8 @@ const OVERVIEW: OverviewData = {
 const GALLERY: GalleryData = {
   lead: 'Homepage, member cabinet, booking flows, events and mobile views. Add real screenshots by setting the src field.',
   items: [
-    { label: 'Homepage — hero & parallax',          ratio: 'wide', src: '/skolkovogolf/homepage.webp'  },
-    { label: 'Course overview page',                ratio: 'wide', src: '/skolkovogolf/course_overview.webp'  },
+    { label: 'Homepage — hero & parallax',          ratio: 'wide', src: '/portfolio/skolkovogolf/homepage.webp'  },
+    { label: 'Course overview page',                ratio: 'wide', src: '/portfolio/skolkovogolf/course_overview.webp'  },
     { label: 'Member personal cabinet',             ratio: 'tall'  },
     { label: 'Tee-time booking flow',               ratio: 'sq'    },
     { label: 'Events & calendar page',              ratio: 'wide'  },
@@ -154,7 +154,7 @@ const slot = (): HTMLDivElement => {
 
 mountProjectTopNav(slot(), {
   counter: '08 / 09',
-  homeHref: '/'
+  homeHref: '/portfolio/'
 })
 mountHero(slot())
 mountMetrics(slot(), METRICS)
