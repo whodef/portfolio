@@ -15,7 +15,7 @@ const TEMPLATE = `
     </div>
 
     <div class="cv-btn-wrap" id="cvBtnWrap">
-      <a href="#" class="cv-btn">
+      <a href="/portfolio/tatiana-seliuk-cv.pdf" target="_blank" rel="noopener" class="cv-btn">
         <svg class="orbit-svg orbit-1" viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
           <circle class="orbit-dot" cx="188" cy="100" r="6.5" fill="white"/>
