@@ -273,4 +273,4 @@
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) { .sg-hero { grid-template-columns: 1fr; } .sg-visual { display: none; } }
 @media (max-width: 900px)  { .sg-hero { padding: 100px 32px 80px; } .sg-scroll { left: 32px; } }
-@media (max-width: 600px)  { .sg-hero { padding: 90px 16px 70px; } .sg-scroll { display: none; } }
+@media (max-width: 600px)  { .sg-hero { padding: 160px 16px 70px; } .sg-scroll { display: none; } }

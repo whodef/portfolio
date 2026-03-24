@@ -218,4 +218,4 @@
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) { .tr-hero { grid-template-columns: 1fr; } .tr-visual { display: none; } }
 @media (max-width: 900px)  { .tr-hero { padding: 100px 32px 80px; } .tr-scroll { left: 32px; } }
-@media (max-width: 600px)  { .tr-hero { padding: 90px 16px 70px; } .tr-scroll  { display: none; } }
+@media (max-width: 600px)  { .tr-hero { padding: 160px 16px 70px; } .tr-scroll  { display: none; } }

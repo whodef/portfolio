@@ -160,8 +160,9 @@ h1.hero-name {
   .heroWrap { padding: 0; }
   .hero-inner { 
     grid-template-columns: 1fr;
+    padding: 80px 40px 0;
   }
-  .cv-btn-wrap { display: none; }
+  .cv-btn-wrap { padding: 80px 0 50px; }
   .hero-connector-svg { display: none; }
   h1.hero-name { font-size: clamp(50px, 12vw, 66px); }
   .paragraph {
