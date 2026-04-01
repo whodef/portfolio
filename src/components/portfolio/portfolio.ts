@@ -24,13 +24,13 @@ const SLIDES: Slide[] = [
     href:  '/portfolio/projects/therink/',
     img:   '/portfolio/therink/rink.webp',
   },
-  // {
-  //   title: 'SportsPari',
-  //   desc:  'Microservices-based sports betting platform using Protocol Buffers, real-time data feeds, and advanced risk management systems.',
-  //   role:  'FULL-STACK ARCHITECT',
-  //   // href: '/portfolio/projects/sportspari/',
-  //   // img:  '/portfolio/sportspari/main.png',
-  // },
+  {
+    title: 'Sports Pari',
+    desc: 'High‑load real‑time platform with WebSocket streaming, microservice architecture, and complex state management. Built to handle peak traffic during live events with sub‑second data consistency.',
+    role: 'FRONTEND DEVELOPER',
+    href: '/portfolio/projects/sportspari/',
+    img: '/portfolio/sportspari/pari.webp',
+  }
 ]
 
 // Мок-экран (показывается когда img не задан)

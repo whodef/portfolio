@@ -159,7 +159,7 @@ mountProjectTopNav(slot(), {
 mountHero(slot())
 mountMetrics(slot(), METRICS)
 mountOverview(slot(), OVERVIEW)
-mountGallery(slot(), GALLERY)
+// mountGallery(slot(), GALLERY)
 mountTeam(slot(), TEAM)
 mountStack(slot(), STACK)
 mountProjectNav(slot(), NAV)
