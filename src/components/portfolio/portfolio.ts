@@ -30,6 +30,13 @@ const SLIDES: Slide[] = [
     role: 'FRONTEND DEVELOPER',
     href: '/portfolio/projects/sportspari/',
     img: '/portfolio/sportspari/pari.webp',
+  },
+  {
+    title: 'Lubimovka',
+    desc: 'Open-source cultural platform for a major contemporary drama festival. Collaborative build by 20+ devs across 4 frontend squads. Implemented play search with filtering and dynamic author profile pages. CMS-driven content with live festival schedule.',
+    role: 'FRONTEND DEVELOPER',
+    href: '/portfolio/projects/lubimovka/',
+    img: '/portfolio/lubimovka/lubimovka.webp',
   }
 ]
 
