@@ -145,8 +145,8 @@ const STACK: StackData = {
 }
 
 const NAV: ProjectNavData = {
-  prev: { label: 'BetFM',         href: '../betfm/'      },
-  next: { label: 'Skolkovo Golf', href: '../skolkovo/'   },
+  prev: { label: 'SportsPari',    href: '../sportspari/' },
+//   next: { label: 'Skolkovo Golf', href: '../skolkovo/'   },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

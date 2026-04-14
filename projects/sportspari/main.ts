@@ -145,7 +145,7 @@ const STACK: StackData = {
 
 const NAV: ProjectNavData = {
   prev: { label: 'The Rink',    href: '../therink/'    },
-  // next: { label: 'Skolkovo Golf', href: '../skolkovo/'   },
+  next: { label: 'Lubimovka Art', href: '../lubimovka/'   },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
