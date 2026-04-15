@@ -1,4 +1,4 @@
-import"./footer-BH-GojY2.js";function t(l,s){l.innerHTML=`
+import"./footer-BmA9qXCm.js";function t(l,s){l.innerHTML=`
     <section class="proj-gallery" id="gallery">
       <div class="proj-section-inner">
         <div class="tag-label">&lt;h3&gt;</div>
