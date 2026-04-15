@@ -41,27 +41,26 @@ const OVERVIEW: OverviewData = {
   ],
   meta: [
     { key: 'ROLE',      val: 'Frontend Developer',                        green: true },
-    { key: 'TEAM',      val: '20+ devs · 4 frontend squads'                          },
+    { key: 'TEAM',      val: '20+ devs · 4 frontend squads'                           },
     { key: 'TYPE',      val: 'Cultural Festival Platform'                             },
     { key: 'PLATFORM',  val: 'Web'                                                    },
-    { key: 'STACK',     val: 'Next.js · TypeScript · CSS Modules · Storybook'        },
+    { key: 'STACK',     val: 'Next.js · TypeScript · CSS Modules · Storybook'         },
     { key: 'OWNED',     val: 'Search · Author Profile Page',              green: true },
     { key: 'STATUS',    val: 'Live · production',                         green: true },
-    { key: 'SITE',      val: 'lubimovka.art →', link: 'https://lubimovka.art'        },
+    { key: 'SITE',      val: 'lubimovka.art →', link: 'https://lubimovka.art'         },
   ],
 }
 
 const GALLERY: GalleryData = {
   lead: 'Play library with search, author profile pages, festival schedule, and mobile views.',
   items: [
-    { label: 'Play library — search & filtering',       ratio: 'wide' },
-    { label: 'Search results — filtered by keyword',    ratio: 'wide' },
-    { label: 'Author profile page — full layout',       ratio: 'tall' },
-    { label: 'Author — play bibliography & downloads',  ratio: 'sq'   },
-    { label: 'Festival schedule — Afisha page',         ratio: 'wide' },
-    { label: 'Storybook — component documentation',     ratio: 'short'},
-    { label: 'Mobile — library & search',               ratio: 'tall' },
-    { label: 'Mobile — author profile',                 ratio: 'sq'   },
+    { label: 'Play library — search & filtering',       ratio: 'wide',  src: '/portfolio/lubimovka/play_library_search_&_filtering.webp'    },
+    { label: 'Search results — filtered by keyword',    ratio: 'wide',  src: '/portfolio/lubimovka/search_results_filtered_by_keyword.webp' },
+    { label: 'Blog — full layout',                      ratio: 'short', src: '/portfolio/lubimovka/blog_full_layout.webp'                   },
+    { label: 'Projects — projects page',                ratio: 'sq',    src: '/portfolio/lubimovka/projects_page.webp'                      },
+    { label: 'Author profile page — full layout',       ratio: 'tall',  src: '/portfolio/lubimovka/author_profile_page_full_layout.webp'    },
+    { label: 'Mobile — library & search',               ratio: 'tall',  src: '/portfolio/lubimovka/mobile_library&search.webp'              },
+    { label: 'Festival — history page',                 ratio: 'wide',  src: '/portfolio/lubimovka/festival_history_page.webp'              },
   ],
 }
 
@@ -110,24 +109,24 @@ const STACK: StackData = {
         { name: 'Next.js',      hero: true },
         { name: 'TypeScript',   hero: true },
         { name: 'CSS Modules',  hero: true },
-        { name: 'SSR' },
+        { name: 'SSR',          hero: true },
         { name: 'Adaptive layout' },
       ],
     },
     {
       label: 'COMPONENT SYSTEM',
       pills: [
-        { name: 'Storybook',    hero: true },
+        { name: 'Storybook',           hero: true },
         { name: 'Component-driven dev' },
         { name: 'Props documentation' },
-        { name: 'Isolated testing' },
+        { name: 'Isolated testing',    hero: true },
       ],
     },
     {
       label: 'BACKEND & API',
       pills: [
         { name: 'Django',      hero: true },
-        { name: 'REST API' },
+        { name: 'REST API',    hero: true },
         { name: 'PostgreSQL' },
         { name: 'Media storage' },
       ],
@@ -135,9 +134,9 @@ const STACK: StackData = {
     {
       label: 'WORKFLOW',
       pills: [
-        { name: 'Git',   hero: true },
+        { name: 'Git',          hero: true },
         { name: 'Slack' },
-        { name: 'Code review' },
+        { name: 'Code review',  hero: true },
         { name: 'Squad-based delivery' },
       ],
     },
