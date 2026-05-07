@@ -163,7 +163,7 @@ import{m as O}from"./glowCursor-CBY4duUr.js";const M=[{href:"#hero",label:"//01.
       </clipPath>
     </defs>
   </svg>`;function J(e){return`
-    <a class="press-item" href="${e.url??"#"}" target="_blank" rel="noopener">
+    <a class="press-item" href="${e.url??"#"}" target="_self" rel="noopener">
       <div class="press-info">
         <span class="press-name">${e.name}</span>
         ${e.date?`<span class="press-date">${e.date}</span>`:""}
