@@ -145,7 +145,7 @@ const STACK: StackData = {
 
 const NAV: ProjectNavData = {
   prev: { label: 'SportsPari',    href: '../sportspari/' },
-//   next: { label: 'Skolkovo Golf', href: '../skolkovo/'   },
+  next: { label: 'ORBI Fund',     href: '../orbi/'       },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
