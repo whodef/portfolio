@@ -29,7 +29,7 @@ const ARROW_SVG = `
 
 function renderItem(item: PressItem): string {
   return `
-    <a class="press-item" href="${item.url ?? '#'}" target="_blank" rel="noopener">
+    <a class="press-item" href="${item.url ?? '#'}" target="_self" rel="noopener">
       <div class="press-info">
         <span class="press-name">${item.name}</span>
         ${item.date ? `<span class="press-date">${item.date}</span>` : ''}

@@ -10,55 +10,54 @@ const HERO = {
   liveHref: 'https://orbifond.ru',
 }
 
-const NODES = [
-  { id: 'tg',    label: 'Telegram Bot',      sub: 'aiogram',          x: 80,  y: 60  },
-  { id: 'api',   label: 'Bot API Service',   sub: 'FastAPI · Python',  x: 300, y: 60  },
-  { id: 'rmq',   label: 'RabbitMQ',          sub: 'Message Broker',   x: 300, y: 200 },
-  { id: 'cel',   label: 'Celery Worker',     sub: 'Task Queue',       x: 300, y: 340 },
-  { id: 'email', label: 'Email Service',     sub: 'SMTP · TLS',       x: 520, y: 200 },
-  { id: 'smtp',  label: 'Yandex Business',   sub: 'Mail · SMTP',      x: 520, y: 340 },
+// Nodes: absolute x,y for rect top-left. w=150 h=54
+const NW = 150
+const NH = 54
+
+interface Node { id: string; label: string; sub: string; x: number; y: number; highlight?: boolean }
+interface Edge { x1: number; y1: number; x2: number; y2: number; label: string; lx: number; ly: number }
+
+const NODES: Node[] = [
+  { id: 'tg',    label: 'Telegram Bot',    sub: 'aiogram',          x: 20,  y: 80  },
+  { id: 'api',   label: 'Bot API Service', sub: 'FastAPI · Python', x: 240, y: 80  },
+  { id: 'rmq',   label: 'RabbitMQ',        sub: 'Message Broker',   x: 240, y: 210 },
+  { id: 'cel',   label: 'Celery Worker',   sub: 'Task Queue',       x: 240, y: 340 },
+  { id: 'email', label: 'Email Service',   sub: 'SMTP · TLS',       x: 480, y: 210, highlight: true },
+  { id: 'smtp',  label: 'Yandex Mail',     sub: 'Business · SMTP',  x: 480, y: 340, highlight: true },
 ]
 
-const EDGES = [
-  { from: 'tg',  to: 'api',   label: 'user action'   },
-  { from: 'api', to: 'rmq',   label: 'publish task'  },
-  { from: 'rmq', to: 'cel',   label: 'consume'       },
-  { from: 'cel', to: 'email', label: 'send job'      },
-  { from: 'email', to: 'smtp', label: 'SMTP/TLS'     },
+function ncx(id: string) { return NODES.find(n => n.id === id)!.x + NW / 2 }
+function ncy(id: string) { return NODES.find(n => n.id === id)!.y + NH / 2 }
+
+// Build edges with midpoint for label
+const RAW_EDGES = [
+  { from: 'tg',    to: 'api',   label: 'user action'  },
+  { from: 'api',   to: 'rmq',   label: 'publish task' },
+  { from: 'rmq',   to: 'cel',   label: 'consume'      },
+  { from: 'cel',   to: 'email', label: 'send job'     },
+  { from: 'email', to: 'smtp',  label: 'SMTP / TLS'   },
 ]
 
-// SVG arrows between nodes — positions are center of each node card (w=140 h=52)
-const NODE_W = 140
-const NODE_H = 52
+const EDGES: Edge[] = RAW_EDGES.map(e => {
+  const x1 = ncx(e.from), y1 = ncy(e.from)
+  const x2 = ncx(e.to),   y2 = ncy(e.to)
+  return { x1, y1, x2, y2, label: e.label, lx: (x1+x2)/2, ly: (y1+y2)/2 - 6 }
+})
 
-function cx(id: string): number {
-  return (NODES.find(n => n.id === id)!.x) + NODE_W / 2
-}
-function cy(id: string): number {
-  return (NODES.find(n => n.id === id)!.y) + NODE_H / 2
-}
-
-function renderEdge(e: typeof EDGES[number], i: number): string {
-  const x1 = cx(e.from), y1 = cy(e.from)
-  const x2 = cx(e.to),   y2 = cy(e.to)
-  const mx = (x1 + x2) / 2
-  const my = (y1 + y2) / 2
+function renderNode(n: Node, i: number): string {
   return `
-    <line class="arch-edge" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"
-      style="animation-delay:${0.3 + i * 0.15}s"/>
-    <text class="arch-edge-label" x="${mx}" y="${my - 6}">${e.label}</text>`
-}
-
-function renderNode(n: typeof NODES[number], i: number): string {
-  const highlight = n.id === 'email' || n.id === 'cel'
-  return `
-    <g class="arch-node${highlight ? ' highlight' : ''}"
-       style="animation-delay:${i * 0.1}s"
-       transform="translate(${n.x},${n.y})">
-      <rect width="${NODE_W}" height="${NODE_H}" rx="6"/>
-      <text class="arch-node-label" x="${NODE_W/2}" y="22">${n.label}</text>
-      <text class="arch-node-sub"   x="${NODE_W/2}" y="38">${n.sub}</text>
+    <g style="animation-delay:${i * 0.1}s" class="arch-node${n.highlight ? ' highlight' : ''}">
+      <rect x="${n.x}" y="${n.y}" width="${NW}" height="${NH}" rx="6"/>
+      <text class="arch-node-label" x="${n.x + NW/2}" y="${n.y + 24}">${n.label}</text>
+      <text class="arch-node-sub"   x="${n.x + NW/2}" y="${n.y + 40}">${n.sub}</text>
     </g>`
+}
+
+function renderEdge(e: Edge, i: number): string {
+  return `
+    <line class="arch-edge" x1="${e.x1}" y1="${e.y1}" x2="${e.x2}" y2="${e.y2}"
+      marker-end="url(#arrow)" style="animation-delay:${0.3 + i * 0.15}s"/>
+    <text class="arch-edge-label" x="${e.lx}" y="${e.ly}">${e.label}</text>`
 }
 
 const TEMPLATE = `
@@ -89,40 +88,32 @@ const TEMPLATE = `
         </div>
 
         <div class="ob-diagram-wrap">
-          <svg class="ob-diagram" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+          <svg class="ob-diagram" viewBox="0 0 660 420" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <marker id="arrow" markerWidth="8" markerHeight="8"
-                refX="6" refY="3" orient="auto">
+                refX="7" refY="3" orient="auto">
                 <path d="M0,0 L0,6 L8,3 z" fill="rgba(0,255,136,0.5)"/>
               </marker>
-              <filter id="nodeGlow">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
             </defs>
 
-            <!-- Section labels -->
-            <text class="arch-section-label" x="10"  y="20">TRANSPORT</text>
-            <text class="arch-section-label" x="230" y="20">SERVICES</text>
-            <text class="arch-section-label" x="490" y="20">DELIVERY</text>
+            <!-- Column labels -->
+            <text class="arch-section-label" x="20"  y="55">TRANSPORT</text>
+            <text class="arch-section-label" x="240" y="55">SERVICES</text>
+            <text class="arch-section-label" x="480" y="55">DELIVERY</text>
 
-            <!-- Vertical dividers -->
-            <line class="arch-divider" x1="230" y1="30" x2="230" y2="400"/>
-            <line class="arch-divider" x1="490" y1="30" x2="490" y2="400"/>
+            <!-- Dividers -->
+            <line class="arch-divider" x1="225" y1="60" x2="225" y2="410"/>
+            <line class="arch-divider" x1="465" y1="60" x2="465" y2="410"/>
 
             <!-- Edges -->
-            <g marker-end="url(#arrow)">
-              ${EDGES.map(renderEdge).join('')}
-            </g>
+            ${EDGES.map(renderEdge).join('')}
 
             <!-- Nodes -->
             ${NODES.map(renderNode).join('')}
 
-            <!-- My work badge -->
-            <g transform="translate(505,270)">
-              <rect class="arch-my-badge" width="130" height="26" rx="4"/>
-              <text class="arch-my-label" x="65" y="17">★ my microservice</text>
-            </g>
+            <!-- My work label -->
+            <rect class="arch-my-badge" x="476" y="300" width="156" height="26" rx="4"/>
+            <text class="arch-my-label" x="554" y="317">★ my microservice</text>
           </svg>
         </div>
 

@@ -26,118 +26,121 @@ import type { ProjectNavData } from '../../src/project/project-nav/project-nav'
 // ─── PAGE DATA ────────────────────────────────────────────────────────────────
 
 const METRICS: MetricItem[] = [
-  { val: '4',    desc: 'Person team — Frontend, Backend, PM, and CTO delivering a premium digital product',  source:  '// TEAM'    },
-  { val: '18',   desc: 'Hole Jack Nicklaus Signature course with dedicated booking and tee-time flows',      source:  '// GOLF'    },
-  { val: '1',    desc: 'Members-only personal cabinet built end-to-end: bookings, profile, status',          source:  '// PRODUCT' },
-  { val: 'Live', desc: 'Production site maintained post-launch — deployments, hotfixes, feature iterations', source:  '// OPS'     },
+  { val: '2',       desc: 'Email types handled — user-facing transactional notifications and internal ops alerts on bot failures',      source: '// SCOPE'    },
+  { val: 'TLS',     desc: 'Configured secure SMTP transport with TLS — set up Yandex Business Mail end-to-end for production use',     source: '// SECURITY' },
+  { val: 'Async',   desc: 'Fully asynchronous delivery via Celery task queue and RabbitMQ broker — emails never block the main flow',  source: '// ARCH'     },
+  { val: '3–4mo',   desc: 'Volunteer engagement duration — collaborative delivery with a team of 5 under a technical lead',            source: '// TIMELINE' },
 ]
 
 const OVERVIEW: OverviewData = {
   paragraphs: [
-    'Skolkovo Golf Club is one of Russia\'s most prestigious private golf clubs, located 20 minutes from central Moscow. The course was personally designed by Jack Nicklaus, earning it the Jack Nicklaus Signature status — the highest designation in golf course architecture.',
-    'I joined an existing frontend team and took full ownership of the members-only personal cabinet — built end-to-end: booking history, profile management, and membership status with CMS integration via Wagtail (Django).',
-    'Beyond the cabinet, I contributed directly to the main site codebase on GitLab — developed a complete hole-by-hole course page and built an animated interactive map of the entire golf club grounds from scratch.',
-    'Post-launch I supported the production site — handling deployments, bug fixes, and new feature delivery as the club\'s needs evolved.',
+    'ORBI Fund is Russia\'s first dedicated stroke awareness foundation — running a national hotline, patient support programs, and medical staff training across dozens of regions. As part of a volunteer developer initiative, successive teams contributed to building a Telegram-based service platform for the foundation\'s operations.',
+    'I joined as a volunteer fullstack developer and took ownership of the email notification microservice — one of the core infrastructure components the bot relied on to communicate with both users and the internal ops team.',
+    'The microservice handles two distinct flows: transactional emails to end users (confirmations, status updates) and internal alert emails dispatched automatically when the bot encounters a runtime error. This meant the service had to be both reliable for user communication and fast enough for real-time failure alerting.',
+    'A meaningful part of the work was infrastructure configuration: setting up Yandex Business Mail as the SMTP provider, working through TLS certificate configuration, and ensuring the connection was stable in production. Email delivery infrastructure is often taken for granted — until you have to set it up correctly from scratch.',
   ],
   meta: [
-    { key: 'ROLE',      val: 'Frontend Developer',  green: true },
-    { key: 'CLIENT',    val: 'Skolkovo Golf Club'               },
-    { key: 'TYPE',      val: 'Premium Club Website'             },
-    { key: 'PLATFORM',  val: 'Web'                              },
-    { key: 'STACK',     val: 'Next.js · Django · Wagtail'       },
-    { key: 'STATUS',    val: 'Live · maintained',   green: true },
-    { key: 'SITE',      val: 'skolkovogolf.com →',  link: 'https://skolkovogolf.com' },
+    { key: 'ROLE',      val: 'Fullstack Developer — volunteer',          green: true },
+    { key: 'CLIENT',    val: 'ORBI Fund · Non-profit'                               },
+    { key: 'TYPE',      val: 'Telegram Bot Infrastructure'                           },
+    { key: 'OWNED',     val: 'Email Notification Microservice',          green: true },
+    { key: 'STACK',     val: 'Python · Celery · RabbitMQ · SMTP/TLS'               },
+    { key: 'DURATION',  val: '3–4 months'                                            },
+    { key: 'SITE',      val: 'orbifond.ru →', link: 'https://orbifond.ru'           },
   ],
 }
 
-const GALLERY: GalleryData = {
-  lead: 'Homepage, member cabinet, booking flows, events and mobile views. Add real screenshots by setting the src field.',
-  items: [
-    { label: 'Homepage — hero & parallax',          ratio: 'wide', src: '/portfolio/skolkovogolf/homepage.webp'  },
-    { label: 'Course overview page',                ratio: 'wide', src: '/portfolio/skolkovogolf/course_overview.webp'  },
-    { label: 'Member personal cabinet',             ratio: 'tall'  },
-    { label: 'Tee-time booking flow',               ratio: 'sq'    },
-    { label: 'Events & calendar page',              ratio: 'wide'  },
-    { label: 'Booking history — cabinet view',      ratio: 'short' },
-    { label: 'Mobile — homepage',                   ratio: 'tall'  },
-    { label: 'CMS — content management view',       ratio: 'sq'    },
-  ],
-}
+// const GALLERY: GalleryData = {
+//   lead: 'System architecture, message flow diagrams, and infrastructure configuration. No UI screenshots — this is a backend microservice.',
+//   items: [
+//     { label: 'System architecture — full service map',         ratio: 'wide'  },
+//     { label: 'Email microservice — internal flow diagram',     ratio: 'wide'  },
+//     { label: 'RabbitMQ — queue configuration & routing',      ratio: 'sq'    },
+//     { label: 'Celery worker — task definition & retry logic',  ratio: 'tall'  },
+//     { label: 'SMTP/TLS — Yandex Business Mail setup',         ratio: 'sq'    },
+//     { label: 'User email — transactional template example',   ratio: 'short' },
+//     { label: 'Ops alert email — bot failure notification',    ratio: 'tall'  },
+//     { label: 'ORBI Fund — live platform',                     ratio: 'wide'  },
+//   ],
+// }
 
 const TEAM: TeamMember[] = [
   {
     initials: 'TS',
     name:     'Tatiana Seliuk',
-    role:     'Frontend Developer. Personal cabinet, hole page, animated club map, prod support',
-    tags:     ['Next.js', 'TypeScript', 'SCSS'],
+    role:     'Volunteer Fullstack Developer. Email notification microservice — architecture, implementation, SMTP/TLS configuration, Yandex Business Mail setup, Celery + RabbitMQ integration',
+    tags:     ['Python', 'Celery', 'RabbitMQ', 'SMTP', 'TLS'],
   },
   {
     initials: '—',
-    name:     'Frontend Team',
-    role:     'Core site architecture and main pages — existing team on the project',
-    tags:     ['Next.js', 'SCSS'],
+    name:     'Team Lead',
+    role:     'Technical direction, architecture decisions, code review, and coordination across volunteer contributors',
+    tags:     ['Lead', 'Review', 'Architecture'],
   },
   {
     initials: '—',
-    name:     'Backend Developer',
-    role:     'Backend architecture, API design, database, server-side logic',
-    tags:     ['Django', 'PostgreSQL'],
+    name:     'Backend Developers (×3)',
+    role:     'Telegram bot core, API services, database layer, and other microservice components',
+    tags:     ['Python', 'aiogram', 'FastAPI', 'PostgreSQL'],
   },
   {
     initials: '—',
-    name:     'Project Manager',
-    role:     'Timeline, client communication, delivery coordination, testing & review',
-    tags:     ['PM', 'Review', 'Testing'],
-  },
-  {
-    initials: '—',
-    name:     'CTO',
-    role:     'Product vision, business decisions, stakeholder management',
-    tags:     ['PRODUCT', 'STRATEGY'],
+    name:     'Previous volunteer teams',
+    role:     'Earlier contributors who built the foundational bot infrastructure this work extended',
+    tags:     ['Python', 'Telegram', 'Infrastructure'],
   },
 ]
 
 const STACK: StackData = {
   paragraphs: [
-    'The frontend is built on Next.js with TypeScript and SCSS modules — chosen for SSR performance and SEO, critical for a premium brand where first impressions matter. All animations are scroll-driven, implemented in vanilla JS without animation libraries to keep the bundle lean.',
-    'Content is managed through Wagtail CMS on Django, giving the club\'s editorial team full autonomy over pages, events, and media. The members-only cabinet connects to the Django REST API with session-based auth and role-based access for different membership tiers.',
+    'The email microservice is written in Python and integrated into the broader bot platform via RabbitMQ as the message broker. When the bot API service needs to send an email — whether triggered by a user action or a runtime error — it publishes a task to a RabbitMQ queue. A Celery worker consumes the task asynchronously and hands it off to the email service, which handles the actual SMTP delivery. This architecture keeps email sending fully decoupled from the main request flow: a slow or failing mail server never affects bot responsiveness.',
+    'The delivery layer uses Python\'s smtplib with explicit TLS configuration — STARTTLS negotiation, certificate verification, and connection pooling. Yandex Business Mail was configured as the SMTP provider, which required working through app password setup, correct port configuration (587 with STARTTLS), and debugging connection edge cases in the production environment. Both user-facing and internal alert templates are managed within the service, with clear separation between the two email types.',
   ],
   groups: [
     {
-      label: 'FRONTEND',
+      label: 'CORE',
       pills: [
-        { name: 'Next.js',    hero: true },
-        { name: 'TypeScript', hero: true },
-        { name: 'SCSS' },
-        { name: 'Vanilla JS' },
-        { name: 'SSR' },
+        { name: 'Python',     hero: true },
+        { name: 'Celery',     hero: true },
+        { name: 'RabbitMQ',   hero: true },
+        { name: 'asyncio' },
+        { name: 'smtplib' },
       ],
     },
     {
-      label: 'CMS & BACKEND',
+      label: 'INFRASTRUCTURE',
       pills: [
-        { name: 'Django',   hero: true },
-        { name: 'Wagtail',  hero: true },
-        { name: 'Python' },
-        { name: 'REST API' },
-        { name: 'PostgreSQL' },
-      ],
-    },
-    {
-      label: 'INFRA & TOOLS',
-      pills: [
-        { name: 'Docker',          hero: true },
-        { name: 'Git' },
-        { name: 'Nginx' },
+        { name: 'SMTP / TLS',           hero: true },
+        { name: 'Yandex Business Mail', hero: true },
+        { name: 'STARTTLS' },
+        { name: 'Docker' },
         { name: 'Linux' },
+      ],
+    },
+    {
+      label: 'BOT PLATFORM',
+      pills: [
+        { name: 'aiogram',   hero: true },
+        { name: 'FastAPI' },
+        { name: 'PostgreSQL' },
+        { name: 'Telegram Bot API' },
+      ],
+    },
+    {
+      label: 'WORKFLOW',
+      pills: [
+        { name: 'Git' },
+        { name: 'Slack' },
+        { name: 'Microservices' },
+        { name: 'Async task queue' },
       ],
     },
   ],
 }
 
 const NAV: ProjectNavData = {
-  // prev: { label: 'Alqen.IO', href: '../project-alqen/' },
-  next: { label: 'The Rink', href: '../therink/' },
+  prev: { label: 'Lubimovka',     href: '../lubimovka/'  },
+  next: { label: 'Skolkovo Golf', href: '../skolkovo/'   },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -153,7 +156,7 @@ const slot = (): HTMLDivElement => {
 }
 
 mountProjectTopNav(slot(), {
-  counter: '08 / 09',
+  counter: '05 / 09',
   homeHref: '/portfolio/'
 })
 mountHero(slot())
