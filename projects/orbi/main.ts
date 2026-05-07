@@ -139,7 +139,7 @@ const STACK: StackData = {
 }
 
 const NAV: ProjectNavData = {
-  prev: { label: 'Lubimovka',     href: '../lubimovka/'    },
+  prev: { label: 'Lubimovka Art', href: '../lubimovka/'    },
   next: { label: 'Skolkovo Golf', href: '../skolkovogolf/' },
 }
 
