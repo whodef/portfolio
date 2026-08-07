@@ -11,7 +11,7 @@ interface SocialLink {
 const SOCIAL_LINKS: SocialLink[] = [
   { name: 'LinkedIn',  url: 'https://www.linkedin.com/in/tatiana-seliuk/', size: 240, top: '12%', left: '12%' },
   { name: 'GitHub',    url: 'https://github.com/whodef',                   size: 200, top: '5%',  left: '48%' },
-  { name: 'Telegram',  url: 'https://t.me/whodef',                         size: 160, top: '58%', left: '35%' },
+  { name: 'WhatsApp',  url: 'https://wa.me/@whodef',                       size: 160, top: '58%', left: '35%' },
   { name: 'Email',     url: 'mailto:tatiseliuk@gmail.com',                 size: 170, top: '48%', left: '66%' },
 ]
 
