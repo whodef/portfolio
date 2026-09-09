@@ -16,8 +16,10 @@ export function mountStack(root: HTMLElement, d: StackData): void {
     <section class="proj-stack" id="stack">
       <div class="proj-section-inner">
         <div class="tag-label">&lt;h5&gt;</div>
-        <h5 class="section-title">Tech Stack</h5>
-        <div class="tag-close">&lt;/h5&gt;</div>
+        <div class="title-tag-wrap">
+          <h5 class="section-title">Tech Stack</h5>
+          <div class="tag-close">&lt;/h5&gt;</div>
+        </div>
 
         <div class="proj-stack-layout">
           <div class="proj-stack-desc">

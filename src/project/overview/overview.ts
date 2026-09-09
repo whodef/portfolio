@@ -19,8 +19,10 @@ export function mountOverview(root: HTMLElement, d: OverviewData): void {
     <section class="proj-overview" id="overview">
       <div class="proj-section-inner">
         <div class="tag-label">&lt;h2&gt;</div>
-        <h2 class="section-title">Project Overview</h2>
-        <div class="tag-close">&lt;/h2&gt;</div>
+        <div class="title-tag-wrap">
+          <h2 class="section-title">Project Overview</h2>
+          <div class="tag-close">&lt;/h2&gt;</div>
+        </div>
 
         <div class="proj-overview-grid">
           <div class="proj-overview-body">

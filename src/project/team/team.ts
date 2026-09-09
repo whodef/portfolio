@@ -12,8 +12,10 @@ export function mountTeam(root: HTMLElement, members: TeamMember[]): void {
     <section class="proj-team" id="team">
       <div class="proj-section-inner">
         <div class="tag-label">&lt;h4&gt;</div>
-        <h4 class="section-title">Team</h4>
-        <div class="tag-close">&lt;/h4&gt;</div>
+        <div class="title-tag-wrap">
+          <h4 class="section-title">Team</h4>
+          <div class="tag-close">&lt;/h4&gt;</div>
+        </div>
         <div class="proj-team-grid">
           ${members.map(m => `
             <div class="proj-team-card" data-reveal>

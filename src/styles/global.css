@@ -89,6 +89,17 @@ section {
   margin-bottom: 16px;
 }
 
+/* ─── SHARED: title wrap — closing tag sits bottom-right of the heading ─── */
+.title-tag-wrap {
+  display: inline-block;
+  position: relative;
+}
+.title-tag-wrap .tag-close {
+  position: absolute;
+  right: -40px;
+  bottom: -30px;
+}
+
 /* ─── SHARED: section title ─── */
 .section-title {
   font-family: var(--font-mono);
@@ -136,11 +147,13 @@ section {
   section { padding: 90px 32px 48px; }
 
   .section-title { font-size: clamp(28px, 6vw, 48px); }
+  .title-tag-wrap .tag-close { right: -30px; bottom: -26px; }
 }
 
 /* ─── MOBILE (≤ 600px) ─── */
 @media (max-width: 600px) {
   section { padding: 80px 16px 40px; }
+  .title-tag-wrap .tag-close { position: static; margin-top: 8px; display: block; }
 
   .section-title { font-size: clamp(24px, 7.5vw, 36px); }
 }

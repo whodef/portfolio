@@ -22,8 +22,10 @@ export function mountGallery(root: HTMLElement, d: GalleryData): void {
     <section class="proj-gallery" id="gallery">
       <div class="proj-section-inner">
         <div class="tag-label">&lt;h3&gt;</div>
-        <h3 class="section-title">Screenshots</h3>
-        <div class="tag-close">&lt;/h3&gt;</div>
+        <div class="title-tag-wrap">
+          <h3 class="section-title">Screenshots</h3>
+          <div class="tag-close">&lt;/h3&gt;</div>
+        </div>
         <p class="proj-gallery-lead">${d.lead}</p>
         <div class="proj-masonry">
           ${d.items.map((item, i) => {
