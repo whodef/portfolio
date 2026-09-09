@@ -11,7 +11,8 @@ const TEMPLATE = `
         <h1 class="hero-name" id="heroName">Tatiana<br>Seliuk</h1>
         <div class="tag-close">&lt;/h1&gt;</div>
       </div>
-      <p class="hero-subtitle">&lt;p&gt;<span class="paragraph">Entrepreneur & Fullstack Engineer, building with AI</span>&lt;/p&gt;</p>
+      <p class="hero-subtitle">&lt;p&gt;<span class="paragraph">Entrepreneur & Fullstack Engineer</span>&lt;/p&gt;</p>
+      <p class="hero-subtitle hero-subtitle--ai">&lt;p&gt;<span class="paragraph">Shipping production code long before AI — now building with it</span>&lt;/p&gt;</p>
     </div>
 
     <div class="cv-btn-wrap" id="cvBtnWrap">
