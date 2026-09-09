@@ -136,7 +136,7 @@ const STACK: StackData = {
 }
 
 const NAV: ProjectNavData = {
-  // prev: { label: 'Alqen.IO', href: '../project-alqen/' },
+  prev: { label: 'Pervaya Nota', href: '../pervaya-nota/' },
   next: { label: 'The Rink', href: '../therink/' },
 }
 

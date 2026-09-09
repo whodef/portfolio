@@ -12,6 +12,7 @@ export default defineConfig({
         projectSportsPari:     resolve(__dirname, 'projects/sportspari/index.html'),
         projectLubimovka:      resolve(__dirname, 'projects/lubimovka/index.html'),
         projectOrbi:           resolve(__dirname, 'projects/orbi/index.html'),
+        projectPervayaNota:    resolve(__dirname, 'projects/pervaya-nota/index.html'),
       },
     },
   },
