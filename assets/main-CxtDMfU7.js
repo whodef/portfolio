@@ -1,4 +1,4 @@
-import{m as O}from"./glowCursor-BppibgFj.js";const M=[{href:"#hero",label:"//01. &lt;Home/&gt;",side:"left"},{href:"#portfolio",label:"//02. &lt;Portfolio/&gt;",side:"left"},{href:"#press",label:"//03. &lt;Press/&gt;",side:"right"},{href:"#contact",label:"//04. &lt;Contact/&gt;",side:"right"}],F=["hero","portfolio","press","contact"];function j(e){e.innerHTML=`
+import{m as O}from"./glowCursor-BppibgFj.js";const M=[{href:"#hero",label:"//01. &lt;Home/&gt;",side:"left"},{href:"#portfolio",label:"//02. &lt;Portfolio/&gt;",side:"left"},{href:"#press",label:"//03. &lt;Side Projects/&gt;",side:"right"},{href:"#contact",label:"//04. &lt;Contact/&gt;",side:"right"}],F=["hero","portfolio","press","contact"];function j(e){e.innerHTML=`
     <div class="mobile-menu" id="mobileMenu">
       <span class="mobile-close" id="mobileClose">✕</span>
       ${M.map(t=>`<a href="${t.href}">${t.label}</a>`).join(`
