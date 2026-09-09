@@ -9,7 +9,7 @@ interface PressItem {
 
 const PRESS_ITEMS: PressItem[] = [
   { name: 'ORBI', date: 'Fullstack Developer — volunteer',    url: '/portfolio/projects/orbi/', featured: true },
-  { name: 'Pervaya Nota', date: 'Fullstack Developer — solo', url: '/portfolio/projects/pervaya-nota/', featured: true },
+  { name: 'Pervaya Nota', date: 'Fullstack Developer / Forward Deployed — solo', url: '/portfolio/projects/pervaya-nota/', featured: true },
   { name: 'More projects dropping soon', date: 'Stay tuned',  url: '#', featured: true }
   // { name: 'Yahoo! Finance',                           url: '#', featured: false },
   // { name: 'Medium',                                   url: '#', featured: false },

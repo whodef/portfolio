@@ -40,7 +40,7 @@ const OVERVIEW: OverviewData = {
     'On the infrastructure side, the site is deployed on Yandex Cloud, with hosting configuration and NS/DNS records set up from scratch to point the client\'s own domain, pervaya-nota.ru, at the deployment — the kind of unglamorous setup work that has to be right before anything else matters.',
   ],
   meta: [
-    { key: 'ROLE',      val: 'Fullstack Developer — solo',        green: true },
+    { key: 'ROLE',      val: 'Fullstack Developer / Forward Deployed — solo',        green: true },
     { key: 'CLIENT',    val: 'Music Educator · Personal Brand'                },
     { key: 'TYPE',      val: 'Educator Portfolio Website'                     },
     { key: 'OWNED',     val: 'Full build — design, frontend, CMS, infra', green: true },
