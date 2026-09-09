@@ -3,7 +3,7 @@ import './nav.css'
 const NAV_LINKS = [
   { href: '#hero',      label: '//01. &lt;Home/&gt;',      side: 'left'  },
   { href: '#portfolio', label: '//02. &lt;Portfolio/&gt;', side: 'left'  },
-  { href: '#press',     label: '//03. &lt;Press/&gt;',     side: 'right' },
+  { href: '#press',     label: '//03. &lt;Side Projects/&gt;', side: 'right' },
   { href: '#contact',   label: '//04. &lt;Contact/&gt;',   side: 'right' },
 ]
 
