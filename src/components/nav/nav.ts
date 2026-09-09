@@ -4,7 +4,7 @@ const NAV_LINKS = [
   { href: '#hero',      label: '//01. &lt;Home/&gt;',      side: 'left'  },
   { href: '#portfolio', label: '//02. &lt;Portfolio/&gt;', side: 'left'  },
   { href: '#press',     label: '//03. &lt;Side Projects/&gt;', side: 'right' },
-  { href: '#contact',   label: '//04. &lt;Contact/&gt;',   side: 'right' },
+  { href: '#contact',   label: '//04. &lt;Connect/&gt;',   side: 'right' },
 ]
 
 const SECTION_IDS = ['hero', 'portfolio', 'press', 'contact']
