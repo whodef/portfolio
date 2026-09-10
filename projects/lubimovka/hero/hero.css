@@ -210,10 +210,10 @@
   flex-shrink: 0;
 }
 .lm-author-name {
-  font-family: var(--font-secondary); font-size: 12px; color: var(--text);
+  font-family: var(--font-mono); font-size: 12px; color: var(--text);
 }
 .lm-author-city {
-  font-family: var(--font-mono); font-size: 9px;
+  font-family: var(--font-secondary); font-size: 9px;
   color: var(--text-dim); margin-top: 2px;
 }
 .lm-author-badge {

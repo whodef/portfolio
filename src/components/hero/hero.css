@@ -35,12 +35,6 @@ h1.hero-name {
   margin-left: clamp(20px, 4vw, 50px);
 }
 
-.tag-label, .tag-close {
-  font-family: var(--font-secondary);
-  font-size: clamp(12px, 1.2vw, 16px);
-  color: var(--text-dim);
-}
-
 .hero-subtitle {
   font-family: var(--font-secondary);
   font-size: clamp(13px, 1.4vw, 16px);
