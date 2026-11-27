@@ -51,16 +51,23 @@ const OVERVIEW: OverviewData = {
 }
 
 const GALLERY: GalleryData = {
-  lead: 'Homepage, member cabinet, booking flows, events and mobile views. Add real screenshots by setting the src field.',
+  lead: 'From the interactive course map and hole-by-hole stats to membership, club life, gift certificates and merch — a walkthrough of the club\'s site.',
   items: [
-    { label: 'Homepage — hero & parallax',          ratio: 'wide', src: '/portfolio/skolkovogolf/homepage.webp'  },
-    { label: 'Course overview page',                ratio: 'wide', src: '/portfolio/skolkovogolf/course_overview.webp'  },
-    { label: 'Member personal cabinet',             ratio: 'tall'  },
-    { label: 'Tee-time booking flow',               ratio: 'sq'    },
-    { label: 'Events & calendar page',              ratio: 'wide'  },
-    { label: 'Booking history — cabinet view',      ratio: 'short' },
-    { label: 'Mobile — homepage',                   ratio: 'tall'  },
-    { label: 'CMS — content management view',       ratio: 'sq'    },
+    { label: 'Interactive course map — hole-by-hole par & distances', ratio: 'wide', src: '/portfolio/skolkovogolf/interactive_course_map.webp'         },
+    { label: 'Homepage — full layout',                                ratio: 'tall', src: '/portfolio/skolkovogolf/homepage_full_layout.webp'           },
+    { label: 'Homepage — Jack Nicklaus, course architect',            ratio: 'wide', src: '/portfolio/skolkovogolf/homepage.webp'                       },
+    { label: 'Golf page — course map, hole cards & club captains',    ratio: 'tall', src: '/portfolio/skolkovogolf/golf_page_course_map_captains.webp'  },
+    { label: 'Homepage — "Close to the city" section',                ratio: 'wide', src: '/portfolio/skolkovogolf/course_overview.webp'                },
+    { label: 'Club rules — expandable sections',                      ratio: 'wide', src: '/portfolio/skolkovogolf/club_rules_accordion.webp'           },
+    { label: 'Coaching — lessons & coaching staff',                   ratio: 'tall', src: '/portfolio/skolkovogolf/coaching_staff_page.webp'            },
+    { label: 'Events — photo & video grid',                           ratio: 'wide', src: '/portfolio/skolkovogolf/events_media_grid.webp'              },
+    { label: 'Membership — types & application form',                 ratio: 'tall', src: '/portfolio/skolkovogolf/membership_application_page.webp'    },
+    { label: 'Gift certificate flow — design step',                   ratio: 'wide', src: '/portfolio/skolkovogolf/gift_certificate_flow.webp'          },
+    { label: 'Club life — fitness, padel & tennis',                   ratio: 'tall', src: '/portfolio/skolkovogolf/club_life_page.webp'                 },
+    { label: 'General rules — club visit & etiquette',                ratio: 'tall', src: '/portfolio/skolkovogolf/general_rules_page.webp'             },
+    { label: 'Merch catalog — clothing & accessories',                ratio: 'tall', src: '/portfolio/skolkovogolf/merch_catalog.webp'                  },
+    { label: 'Careers — team & open roles',                           ratio: 'tall', src: '/portfolio/skolkovogolf/careers_page.webp'                   },
+    { label: 'Contacts — departments & footer',                       ratio: 'wide', src: '/portfolio/skolkovogolf/contacts_page.webp'                  },
   ],
 }
 
@@ -159,7 +166,7 @@ mountProjectTopNav(slot(), {
 mountHero(slot())
 mountMetrics(slot(), METRICS)
 mountOverview(slot(), OVERVIEW)
-// mountGallery(slot(), GALLERY)
+mountGallery(slot(), GALLERY)
 mountTeam(slot(), TEAM)
 mountStack(slot(), STACK)
 mountProjectNav(slot(), NAV)
